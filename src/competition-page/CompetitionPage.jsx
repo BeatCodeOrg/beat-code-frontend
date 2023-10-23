@@ -7,7 +7,7 @@ import { languageOptions } from "../constants/languageOptions"; // temp
 import { ToastContainer, toast } from "react-toastify"; // used to put like pop up notifications
 import "react-toastify/dist/ReactToastify.css"; // css file for toastify
 
-import { defineTheme } from "../lib/defineTheme"; // temp
+import { defineTheme } from "./defineTheme"; // temp
 import useKeyPress from "../hooks/useKeyPress"; // temp
 import Footer from "./Footer"; // temp
 import OutputWindow from "./OutputWindow"; // temp
@@ -34,6 +34,7 @@ const Landing = () => {
     setLanguage(sl);
   };
 
+  // everytime enter or control is pressed, this runs
   useEffect(() => {
     if (enterPress && ctrlPress) {
       console.log("enterPress", enterPress);
@@ -41,6 +42,8 @@ const Landing = () => {
       handleCompile();
     }
   }, [ctrlPress, enterPress]);
+
+  // we can map many different types of actions to this
   const onChange = (action, data) => {
     switch (action) {
       case "code": {
@@ -61,7 +64,15 @@ const Landing = () => {
   };
 
   function handleThemeChange(th) {
-    // We will come to the implementation later in the code
+    const theme = th;
+    console.log("theme...", theme);
+
+    // Accessible by default
+    if (["light", "vs-dark"].includes(theme.value)) {
+      setTheme(theme);
+    } else {
+      defineTheme(theme.value).then((_) => setTheme(theme));
+    }
   }
   useEffect(() => {
     defineTheme("oceanic-next").then((_) =>
@@ -69,6 +80,7 @@ const Landing = () => {
     );
   }, []);
 
+  // success notification
   const showSuccessToast = (msg) => {
     toast.success(msg || `Compiled Successfully!`, {
       position: "top-right",
@@ -80,6 +92,8 @@ const Landing = () => {
       progress: undefined,
     });
   };
+
+  // error notification
   const showErrorToast = (msg) => {
     toast.error(msg || `Something went wrong! Please try again.`, {
       position: "top-right",
