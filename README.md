@@ -7,7 +7,7 @@
 - run `touch .env` and open that file in a text editor
 - you need to create 3 environment variables
   - to learn about .env files, read this: https://medium.com/how-to-react/using-env-file-in-react-js-b2714235e77e
-  - we are using React.js but I prefer to use Vite to build the React Project which is faster, so in the code there's
+  - we are using React.js but I prefer to use Vite to build the React Project cause it's faster, so in the code there's
     like a very small difference but the concept of the file is the same
   - `VITE_JUDGE0_SUBMISSIONS_URL=https://judge0-ce.p.rapidapi.com/submissions`
     - you can copy that line and insert it on it's own line in the file
