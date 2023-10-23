@@ -14,7 +14,7 @@ import OutputDetails from "./OutputDetails";
 import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
 
-const javascriptDefault = `// some comment`;
+const javascriptDefault = `// some comment`; // probably have a diff default for each problem
 
 const CompetitionCode = () => {
   const [code, setCode] = useState(javascriptDefault); // refers to the code we have typed
