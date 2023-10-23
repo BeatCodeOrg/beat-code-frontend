@@ -63,16 +63,17 @@ const CompetitionCode = () => {
       stdin: btoa(customInput),
     };
 
+    console.log(import.meta.env.VITE_RAPID_API_HOST);
     // Parameters for axios request to Judge0
     const options = {
       method: "POST",
-      url: process.env.REACT_APP_JUDGE0_SUBMISSION_URL,
+      url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL,
       params: { base64_encoded: "true", fields: "*" },
       headers: {
         "content-type": "application/json",
         "Content-Type": "application/json",
-        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+        "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
+        "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
       },
       data: formData,
     };
@@ -96,13 +97,15 @@ const CompetitionCode = () => {
   // if successful, get the output details and save it to outputDetails
   const checkStatus = async (token) => {
     // checking the /submissions/:token endpoint
+    const url = import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL + "/" + token;
+    console.log(url);
     const options = {
       method: "GET",
-      url: process.env.REACT_APP_RAPID_SUBMISSION_URL + "/" + token,
+      url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL + "/" + token,
       params: { base64_encoded: "true", fields: "*" },
       headers: {
-        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+        "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
+        "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
       },
     };
 
@@ -219,14 +222,10 @@ const CompetitionCode = () => {
             <button
               onClick={handleCompile}
               disabled={!code}
-              className={
-                [
-                  "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
-                  !code,
-                ].join(" ")
-                  ? "opacity-50"
-                  : ""
-              }
+              className={[
+                "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
+                !code ? "opacity-50" : "",
+              ].join(" ")}
             >
               {processing ? "Processing..." : "Compile and Execute"}
             </button>

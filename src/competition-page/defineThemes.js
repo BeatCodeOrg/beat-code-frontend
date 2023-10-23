@@ -56,12 +56,29 @@ const monacoThemes = {
 // returns an empty promise that simply loads the desired theme into
 // the editor
 const defineTheme = (theme) => {
+  const themeLink = "monaco-themes/themes/" + monacoThemes[theme] + ".json";
   return new Promise((res) => {
     Promise.all([
       loader.init(),
-      import(`monaco-themes/themes/${monacoThemes[theme]}.json`),
+      import.meta.glob("monaco-themes/themes/Tomorrow.json")[
+        "monaco-themes/themes/Tomorrow.json"
+      ],
     ]).then(([monaco, themeData]) => {
-      monaco.editor.defineTheme(theme, themeData);
+      // monaco.editor.defineTheme("onedark", "onedark", {
+      //   base: "vs-dark",
+      //   inherit: true,
+      //   rules: [
+      //     {
+      //       token: "comment",
+      //       foreground: "#5d7988",
+      //       fontStyle: "italic",
+      //     },
+      //     { token: "constant", foreground: "#e06c75" },
+      //   ],
+      //   colors: {
+      //     "editor.background": "#21252b",
+      //   },
+      // });
       res();
     });
   });
