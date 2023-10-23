@@ -1,5 +1,5 @@
 import Select from "react-select";
-import { customStyles } from "../constants/customStyles";
+import { customSelectStyles } from "../constants/customDropdownStyles";
 import { languageOptions } from "../constants/languageOptions";
 
 // onSelectChange is a function that takes in the selected language
@@ -9,7 +9,7 @@ const LanguagesDropdown = ({ onSelectChange }) => {
     <Select
       placeholder={`Filter By Category`}
       options={languageOptions}
-      styles={customStyles}
+      styles={customSelectStyles}
       defaultValue={languageOptions[0]}
       onChange={(selectedOption) => onSelectChange(selectedOption)}
     />

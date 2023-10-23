@@ -1,5 +1,5 @@
 // Taken from https://github.com/manuarora700/react-code-editor/blob/main/src/constants/customStyles.js
-export const customStyles = {
+export const customSelectStyles = {
   control: (styles) => ({
     ...styles,
     width: "100%",
