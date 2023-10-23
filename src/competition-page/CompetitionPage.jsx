@@ -19,12 +19,12 @@ import LanguagesDropdown from "./LanguagesDropdown"; // temp
 const javascriptDefault = `// some comment`;
 
 const Landing = () => {
-  const [code, setCode] = useState(javascriptDefault);
-  const [customInput, setCustomInput] = useState("");
-  const [outputDetails, setOutputDetails] = useState(null);
-  const [processing, setProcessing] = useState(null);
-  const [theme, setTheme] = useState("cobalt");
-  const [language, setLanguage] = useState(languageOptions[0]);
+  const [code, setCode] = useState(javascriptDefault); // refers to the code we have typed
+  const [customInput, setCustomInput] = useState(""); // the custom test cases we have typed
+  const [outputDetails, setOutputDetails] = useState(null); // the output details from Judge0
+  const [processing, setProcessing] = useState(null); // whether we are processing submitted code
+  const [theme, setTheme] = useState("cobalt"); // the current theme we are using
+  const [language, setLanguage] = useState(languageOptions[0]); // the current programming language we are using
 
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
@@ -55,14 +55,85 @@ const Landing = () => {
       }
     }
   };
+
   const handleCompile = () => {
-    // We will come to the implementation later in the code
+    setProcessing(true); // showing loading animation
+    const formData = {
+      language_id: language.id,
+      // encode source code in base64
+      source_code: btoa(code),
+      stdin: btoa(customInput),
+    };
+
+    // Parameters for axios request to Judge0
+    const options = {
+      method: "POST",
+      url: process.env.REACT_APP_JUDGE0_SUBMISSION_URL,
+      params: { base64_encoded: "true", fields: "*" },
+      headers: {
+        "content-type": "application/json",
+        "Content-Type": "application/json",
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      },
+      data: formData,
+    };
+
+    // Makes get request
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log("res.data", response.data);
+        const token = response.data.token;
+        checkStatus(token);
+      })
+      .catch((err) => {
+        let error = err.response ? err.response.data : err;
+        setProcessing(false);
+        console.log(error);
+      });
   };
 
+  // checks to see if we have received a successful response from Judge0
+  // if successful, get the output details and save it to outputDetails
   const checkStatus = async (token) => {
-    // We will come to the implementation later in the code
-  };
+    // checking the /submissions/:token endpoint
+    const options = {
+      method: "GET",
+      url: process.env.REACT_APP_RAPID_SUBMISSION_URL + "/" + token,
+      params: { base64_encoded: "true", fields: "*" },
+      headers: {
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      },
+    };
 
+    try {
+      let response = await axios.request(options);
+      let statusId = response.data.status?.id;
+
+      // Processed - we have a result
+      if (statusId === 1 || statusId === 2) {
+        // still processing
+        setTimeout(() => {
+          checkStatus(token);
+        }, 2000);
+        return;
+      } else {
+        // we have a result
+        setProcessing(false);
+        setOutputDetails(response.data);
+        showSuccessToast(`Compiled Successfully!`); // displays success notification
+        console.log("response.data", response.data);
+        return;
+      }
+    } catch (err) {
+      // if there was an error in the request
+      console.log("err", err);
+      setProcessing(false);
+      showErrorToast();
+    }
+  };
   function handleThemeChange(th) {
     const theme = th;
     console.log("theme...", theme);
