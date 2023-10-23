@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
-import { classnames } from "../utils/general"; // temp
-import { languageOptions } from "../constants/languageOptions"; // temp
+import { languageOptions } from "../../constants/languageOptions";
 
 import { ToastContainer, toast } from "react-toastify"; // used to put like pop up notifications
 import "react-toastify/dist/ReactToastify.css"; // css file for toastify
 
-import { defineTheme } from "./defineTheme"; // temp
-import useKeyPress from "../hooks/useKeyPress"; // temp
-import Footer from "./Footer"; // temp
-import OutputWindow from "./OutputWindow"; // temp
-import CustomInput from "./CustomInput"; // temp
-import OutputDetails from "./OutputDetails"; // temp
-import ThemeDropdown from "./ThemeDropdown"; // temp
-import LanguagesDropdown from "./LanguagesDropdown"; // temp
+import { defineTheme } from "./defineThemes";
+import useKeyPress from "./useKeyPress";
+import OutputWindow from "./OutputWindow";
+import CustomInput from "./CustomInput";
+import OutputDetails from "./OutputDetails";
+import ThemeDropdown from "./ThemeDropdown";
+import LanguagesDropdown from "./LanguagesDropdown";
 
 const javascriptDefault = `// some comment`;
 
-const Landing = () => {
+const CompetitionCode = () => {
   const [code, setCode] = useState(javascriptDefault); // refers to the code we have typed
   const [customInput, setCustomInput] = useState(""); // the custom test cases we have typed
   const [outputDetails, setOutputDetails] = useState(null); // the output details from Judge0
@@ -26,8 +24,8 @@ const Landing = () => {
   const [theme, setTheme] = useState("cobalt"); // the current theme we are using
   const [language, setLanguage] = useState(languageOptions[0]); // the current programming language we are using
 
-  const enterPress = useKeyPress("Enter");
-  const ctrlPress = useKeyPress("Control");
+  const enterPress = useKeyPress("Enter"); // a hook that returns true if enter is pressed
+  const ctrlPress = useKeyPress("Control"); // a hook that returns true if cntrl is pressed
 
   const onSelectChange = (sl) => {
     console.log("selected Option...", sl);
@@ -110,7 +108,9 @@ const Landing = () => {
 
     try {
       let response = await axios.request(options);
-      let statusId = response.data.status?.id;
+      let statusId = response.data.status?.id; // statusId is # from 1-14
+      // 1,2 = processing | 3 = accepted | 5 = Time Exceeded
+      // 6 = Compilation Error
 
       // Processed - we have a result
       if (statusId === 1 || statusId === 2) {
@@ -219,10 +219,14 @@ const Landing = () => {
             <button
               onClick={handleCompile}
               disabled={!code}
-              className={classnames(
-                "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
-                !code ? "opacity-50" : ""
-              )}
+              className={
+                [
+                  "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
+                  !code,
+                ].join(" ")
+                  ? "opacity-50"
+                  : ""
+              }
             >
               {processing ? "Processing..." : "Compile and Execute"}
             </button>
@@ -230,8 +234,7 @@ const Landing = () => {
           {outputDetails && <OutputDetails outputDetails={outputDetails} />}
         </div>
       </div>
-      <Footer />
     </>
   );
 };
-export default Landing;
+export default CompetitionCode;

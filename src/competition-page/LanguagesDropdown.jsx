@@ -1,6 +1,6 @@
 import Select from "react-select";
-import { customSelectStyles } from "../constants/customDropdownStyles";
-import { languageOptions } from "../constants/languageOptions";
+import { customSelectStyles } from "../../constants/customDropdownStyles";
+import { languageOptions } from "../../constants/languageOptions";
 
 // onSelectChange is a function that takes in the selected language
 // and sets the language state to the selected language
