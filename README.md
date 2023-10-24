@@ -22,3 +22,5 @@
  
     - then replace the stuff after the equal sign to the values
     - also, no, **you do not include the angle brackets in the line**
+- save the .env file
+- run `npm run dev`
