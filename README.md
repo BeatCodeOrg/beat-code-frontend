@@ -5,6 +5,7 @@
 - then, `run npm i`
   - if you dont have npm, read this: https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac
 - run `touch .env` and open that file in a text editor
+  - touch just creates a file
 - you need to create 3 environment variables
   - to learn about .env files, read this: https://medium.com/how-to-react/using-env-file-in-react-js-b2714235e77e
   - we are using React.js but I prefer to use Vite to build the React Project cause it's faster, so in the code there's
