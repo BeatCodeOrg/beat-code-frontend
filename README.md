@@ -1,7 +1,7 @@
 # Installation Setup
 
 - clone the repo using `git clone https://github.com/BeatCodeOrg/beat-code-frontend.git`
-- once cloned, navigate to the root of project by running cd beat-code-frontend
+- once cloned, navigate to the ***root*** of project by running `cd beat-code-frontend`
 - then, run `npm i`
   - if you dont have npm, read this: https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac
 - run `touch .env` and open that file in a text editor
