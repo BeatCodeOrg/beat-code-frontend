@@ -1,10 +1,10 @@
-
-
+import React from 'react';
+import './landing-page.css'; 
 const LandingPage = () => {
 
     return (
-        <div>
-          <h1> This is the landing page</h1>
+        <div className="page-background">
+          <p className="logo"> BeatCode </p>
         </div>
       );
     };
