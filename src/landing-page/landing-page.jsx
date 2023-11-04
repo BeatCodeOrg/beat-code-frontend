@@ -4,7 +4,8 @@ const LandingPage = () => {
 
     return (
         <div className="page-background">
-          <p className="logo"> BeatCode </p>
+         <div className="logo"> BeatCode </div>
+          <div className="title"> Crack Code, Not Friendships</div>
         </div>
       );
     };
