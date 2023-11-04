@@ -1,0 +1,94 @@
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: linear-gradient(67deg, rgba(114, 114, 114, 0.28) 0%, rgba(153, 0, 0, 0.80) 0.01%, rgba(255, 199, 44, 0.80) 77.66%);
+}
+
+.react-responsive-modal-modal {
+    background: none;
+    box-shadow: none;
+    width: 40%; /* Set the width to 40% of the viewport width */
+    max-width: 40em; /* Set a maximum width to ensure it's not too wide */
+    height: auto; /* Allow the height to adjust based on content */
+    position: fixed;
+    top: 20%; /* Center vertically at 30% from the top of the viewport */
+    left: 30%; /* Center horizontally at 50% from the left of the viewport */
+}
+  
+.modal-body {
+    border-radius: 30px;
+    background: #F9F7EF;
+    box-shadow: 0px 4px 10px 5px #361306;
+    padding: 2em;
+    text-align: center;
+}
+
+.modal-display-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    width: 3em;
+    height: 3em;
+    transform: rotate(15.714deg);
+}
+
+.react-responsive-modal-closeButton {
+    margin: 1.5em;
+}
+
+.modal-body .btn {
+    color: #C35F3B;
+    text-align: center;
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 9px;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+
+    border: 2px solid #361306;
+    background: linear-gradient(180deg, #FFD768 0%, #FB0 100%);
+}
+
+input[type="text"], input[type="password"] {
+    box-sizing: border-box; /* Include padding and border within the element's total width */
+    width: 100%; /* Set the width to 100% of the parent container */
+    padding: 0.5em; /* Add padding around the input field */
+    border: 2px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Add rounded corners */
+    background-color: #f9f9f9; /* Set background color */
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+  }
+  
+/*TEMPORARY*/
+.nav.buttons button {
+    text-align: center;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 0.07em;
+    margin: 0.5em;
+
+    border-radius: 40px;
+    box-shadow: 0px 6px 10px 2px rgba(96, 12, 12, 0.71);
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav.buttons button#signup {
+    color: #C35F3B;
+    background: #FFC72C;
+}
+
+.nav.buttons button#login {
+    color: #F9F7EF;
+    border: 2px solid #F9F7EF;
+}
+
+  
