@@ -30,6 +30,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-left: 2em;
+    padding-top: 4.8em;
 }
 
 .left-header {
@@ -39,8 +40,6 @@ body {
     color: #F9F7EF;
     justify-content: flex-start;
 }
-
-
 
 .images {
     position: relative;
@@ -76,14 +75,13 @@ body {
 .images #mac {
     position: absolute;
     display: block;
-    top: 0;
-    left: 0;
     max-width: 100%;
     max-height: 100%;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 800%;
     object-fit: cover;
     z-index: 2;
+    margin-left: 8%;
 }
 
 .react-responsive-modal-modal {
@@ -190,6 +188,10 @@ input[type="text"], input[type="password"] {
     color: lightgray;   
     text-decoration: underline;     
     padding-top: 0.5em;
+}
+
+#continue-guest:hover {
+    color: rgb(149, 149, 149);   
 }
 
   
