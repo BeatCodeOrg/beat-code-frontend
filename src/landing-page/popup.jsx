@@ -5,7 +5,6 @@ import { Modal } from 'react-responsive-modal';
 import './popup.css'
 
 class Popup extends Component {
-
     constructor(props) {
         super(props)
 
@@ -36,15 +35,28 @@ class Popup extends Component {
         const {login, sign} = this.state;
         return (
             <>
-            {/* TEMPORARY BUTTONS */}
-            <ul className="nav buttons">
-                <li>
-                    <button className="btn" id="signup" onClick={this.onOpenModal}>Sign Up</button>
-                </li>
-                <li>
-                    <button className="btn" id="login" onClick={this.onOpenModalLogin}>Log In</button>
-                </li>
-            </ul>
+            {/* NAV BAR */}
+            <div className = "navBar">
+                <div className = "navBarLogo"><img src="src/assets/logo.png" alt="BEATCODE logo"/></div> 
+                <h1>BeatCode</h1> 
+            </div>
+
+            <div className = "landing-body">
+                {/* LEFT HEADER COMPONENT WITH TEXT */}
+                <div className = "left-header">
+                    <h2 style={{ textTransform: 'uppercase', fontSize: '4.1em', fontWeight: '700' }}>Crack code, <br></br> not friendships.</h2>
+                    <p style= {{ fontSize: '1.2em', letterSpacing: '0.12em' }}>Test your programming skills with LeetCode style <br></br> questions in friendly competition with old or new friends.</p>
+                    <div class = "nav buttons">
+                        <button className="btn" id="signup" onClick={this.onOpenModal}>Sign Up</button>
+                        <button className="btn" id="login" onClick={this.onOpenModalLogin}>Log In</button>
+                    </div>
+                    <button id="continue-guest" onClick={this.onOpenModal}>Continue as Guest</button>
+                </div>
+                {/* TEMPORARY IMAGE */}
+                <div className= "images">
+                <img id="mac" src="src/assets/mac.png" alt="BEATCODE logo"/>
+                </div>
+            </div>
             
             {/* SIGN UP MODAL */}
             <Modal open = {sign} onClose = {this.onCloseModal}>
@@ -91,6 +103,7 @@ class Popup extends Component {
             </>
         )
     }
+
 }
 
 export default Popup
