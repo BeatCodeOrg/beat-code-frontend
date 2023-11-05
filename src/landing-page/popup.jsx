@@ -44,8 +44,8 @@ class Popup extends Component {
             <div className = "landing-body">
                 {/* LEFT HEADER COMPONENT WITH TEXT */}
                 <div className = "left-header">
-                    <h2 className = "tagline" style={{ textTransform: 'uppercase', fontSize: '4.1em', fontWeight: '700' }}>Crack code, <br></br> not friendships.</h2>
-                    <p style= {{ fontSize: '1.2em', letterSpacing: '0.12em' }}>Test your programming skills with LeetCode style <br></br> questions in friendly competition with old or new friends.</p>
+                    <h2 style={{ textTransform: 'uppercase', fontSize: '4.1em', fontWeight: '700' }}>Crack code, <br></br> not friendships.</h2>
+                    <p style= {{ fontSize: '1.2em', letterSpacing: '0.12em' }}>Test your programming skills with LeetCode style questions in friendly competition with old or new friends.</p>
                     <div class = "nav buttons">
                         <button className="btn" id="signup" onClick={this.onOpenModal}>Sign Up</button>
                         <button className="btn" id="login" onClick={this.onOpenModalLogin}>Log In</button>
