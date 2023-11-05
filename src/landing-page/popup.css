@@ -41,6 +41,24 @@ body {
     justify-content: flex-start;
 }
 
+@keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotateAnimationCounter{
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
 .images {
     position: relative;
     flex: 1;
@@ -58,6 +76,8 @@ body {
     width: 43%;
     z-index: 1;
     transform: scale(0.98);
+    animation: rotateAnimation 12s linear infinite;
+
 
 }
 
@@ -70,6 +90,8 @@ body {
     width: 90%;
     z-index: 1;
     transform: scale(0.85);
+    animation: rotateAnimationCounter 12s linear infinite;
+
 }
 
 .images #mac {
