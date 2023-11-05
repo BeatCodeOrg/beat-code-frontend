@@ -172,11 +172,14 @@ input[type="text"], input[type="password"] {
 .nav.buttons button#signup:hover {
     background-color: #e6b422; 
     color: #fff; 
+    transform: translateY(-10px);
+
 }
 
 .nav.buttons button#login:hover {
     background-color: #ddd; 
     color: #333; 
+    transform: translateY(-10px);
 }
 
 .nav.buttons button#login {
@@ -192,4 +195,7 @@ input[type="text"], input[type="password"] {
     padding-top: 0.5em;
 }
 
+#continue-guest:hover {
+    color: #e6b422;
+}
   
