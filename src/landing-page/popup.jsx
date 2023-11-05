@@ -54,7 +54,9 @@ class Popup extends Component {
                 </div>
                 {/* TEMPORARY IMAGE */}
                 <div className= "images">
-                <img id="mac" src="src/assets/mac.png" alt="BEATCODE logo"/>
+                <img id="ellipse1" src="src/assets/Ellipse1.png" alt="Ellipse1"/>
+                <img id="ellipse2" src="src/assets/Ellipse2.png" alt="Ellipse2"/>
+                <img id="mac" src="src/assets/mac.png" alt="MacBook"/>
                 </div>
             </div>
             
