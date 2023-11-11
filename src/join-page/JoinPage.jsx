@@ -29,6 +29,36 @@ function JoinPage() {
           </linearGradient>
         </defs>
       </svg>
+
+      {/* NAV BAR */}
+      <div className = "navBar">
+                <div className = "navBarLogo"><img src="src/assets/logo.png" alt="BEATCODE logo"/></div> 
+                <h1>BeatCode</h1> 
+      </div>
+
+      <div className="container">
+      <div className = "leftSide"> 
+      
+      <h3 id="left_text"> I want to </h3>
+
+      <h1 id="left_main_text"> Make a Room </h1>
+
+      <button id = "generateRoom"> Generate New Room </button>
+      
+      </div>
+      
+      <div className="VL"></div>
+
+      <div className="rightSide">
+
+      <h3 id = "right_text"> I want to </h3>
+
+      <h1 id="right_main_text"> Join a Game </h1>
+
+      <input type="text" id = "RoomCode" placeholder="Enter Room Code" />
+      </div>
+
+      </div>
     </div>
   );
 }
