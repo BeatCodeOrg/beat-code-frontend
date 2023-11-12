@@ -201,7 +201,7 @@ const CompetitionCode = () => {
           <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
         </div>
       </div>
-      <div className="flex flex-col w-[95%] ml-auto justify-end space-x-4 items-start px-4 py-4">
+      <div className="flex flex-col w-[100%] ml-auto justify-end space-x-4 items-start px-4 py-4">
         <div className="flex flex-col w-full justify-start items-end">
           <CodeEditorWindow
             code={code}
@@ -211,7 +211,7 @@ const CompetitionCode = () => {
           />
         </div>
 
-        <div className="right-container flex flex-shrink-0 w-[94%] flex-col">
+        <div className="right-container flex flex-shrink-0 w-[97%] p-4 flex-col">
           <OutputWindow outputDetails={outputDetails} />
           <div className="flex flex-col items-end">
             {/* <CustomInput

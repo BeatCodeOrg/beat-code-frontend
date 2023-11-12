@@ -6,10 +6,10 @@ function FullCompPage() {
       <>
         <div className="progress-bar"></div>
         <div className="full-competition-page flex">
-            <div className="left-problem-desc" style={{ width: '50%', padding: '20px' }}>
-                <h2 id="problem-desc-title">DESCRIPTION</h2>
+            <div className="left-problem-desc" style={{ width: '40%', padding: '20px' }}>
+                <h2 className="problem-desc-title p-3 text-3xl font-bold tracking-wider">DESCRIPTION</h2>
                 <div className="selected-categories"></div>
-                <p id="problem-desc">This is a sample description. 
+                <p className="problem-desc p-3 font-medium">This is a sample description. 
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco 
@@ -18,7 +18,7 @@ function FullCompPage() {
                 dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
                 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
-            <div className="right-IDE w-1/2">
+            <div className="right-IDE w-[65%]">
                 <CompetitionPage />
             </div>
         </div>
