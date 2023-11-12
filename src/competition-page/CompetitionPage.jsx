@@ -14,10 +14,10 @@ import OutputDetails from "./OutputDetails";
 import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
 
-const javascriptDefault = `// some comment`; // probably have a diff default for each problem
+const pythonDefault = `# some comment`; // probably have a diff default for each problem
 
 const CompetitionCode = () => {
-  const [code, setCode] = useState(javascriptDefault); // refers to the code we have typed
+  const [code, setCode] = useState(pythonDefault); // refers to the code we have typed
   const [customInput, setCustomInput] = useState(""); // the custom test cases we have typed
   const [outputDetails, setOutputDetails] = useState(null); // the output details from Judge0
   const [processing, setProcessing] = useState(null); // whether we are processing submitted code
