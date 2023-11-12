@@ -6,13 +6,15 @@ function JoinPage() {
       <svg
         className="join-page__svg"
         xmlns="http://www.w3.org/2000/svg"
-        width="982"
+        width="1307"
         height="1117"
-        viewBox="0 0 982 1117"
+        viewBox="0 0 1307 1117"
         fill="none"
+        preserveAspectRatio="xMidYMid meet"
+
       >
         <path
-          d="M-5 0H865.387C865.387 0 603.008 265.6 865.387 558.5C1127.77 851.4 865.387 1117 865.387 1117H-5V0Z"
+          d="M0 0H1307C1307 0 1144.008 265.6 1307 558.5C1469.77 851.4 1307 1117 1307 1117H0V0Z"
           fill="url(#paint0_linear_23_233)"
         />
         <defs>
@@ -37,7 +39,7 @@ function JoinPage() {
       </div>
 
       <div className="container">
-      <div className = "leftSide"> 
+      <div className = "leftSide">
       
       <h3 id="left_text"> I want to </h3>
 
@@ -47,8 +49,6 @@ function JoinPage() {
       
       </div>
       
-      <div className="VL"></div>
-
       <div className="rightSide">
 
       <h3 id = "right_text"> I want to </h3>
