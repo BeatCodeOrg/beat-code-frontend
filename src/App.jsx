@@ -1,10 +1,12 @@
 import { useState } from "react";
-import CompetitionPage from "./competition-page/CompetitionPage";
+
+import FullCompPage from "./competition-page/FullCompPage";
+import Popup from "./landing-page/popup"
 
 function App() {
   return (
     <>
-      <CompetitionPage />
+      <FullCompPage />
     </>
   );
 }
