@@ -5,9 +5,9 @@ import JoinPage from "./join-page/JoinPage";
 
 function App() {
   return (
-    <>
+    <div className="overflow-hidden">
       <JoinPage />
-    </>
+    </div>
   );
 }
 

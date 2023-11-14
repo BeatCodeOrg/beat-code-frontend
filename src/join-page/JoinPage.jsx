@@ -11,7 +11,6 @@ function JoinPage() {
         viewBox="0 0 1307 1117"
         fill="none"
         preserveAspectRatio="xMidYMid meet"
-
       >
         <path
           d="M0 0H1307C1307 0 1144.008 265.6 1307 558.5C1469.77 851.4 1307 1117 1307 1117H0V0Z"
@@ -33,31 +32,29 @@ function JoinPage() {
       </svg>
 
       {/* NAV BAR */}
-      <div className = "navBar">
-                <div className = "navBarLogo"><img src="src/assets/logo.png" alt="BEATCODE logo"/></div> 
-                <h1>BeatCode</h1> 
+      <div className="navBar">
+        <div className="navBarLogo">
+          <img src="src/assets/logo.png" alt="BEATCODE logo" />
+        </div>
+        <h1>BeatCode</h1>
       </div>
 
       <div className="container">
-      <div className = "leftSide">
-      
-      <h3 id="left_text"> I want to </h3>
+        <div className="leftSide">
+          <h3 id="left_text"> I want to </h3>
 
-      <h1 id="left_main_text"> Make a Room </h1>
+          <h1 id="left_main_text"> Make a Room </h1>
 
-      <button id = "generateRoom"> Generate New Room </button>
-      
-      </div>
-      
-      <div className="rightSide">
+          <button id="generateRoom"> Generate New Room </button>
+        </div>
 
-      <h3 id = "right_text"> I want to </h3>
+        <div className="rightSide">
+          <h3 id="right_text"> I want to </h3>
 
-      <h1 id="right_main_text"> Join a Game </h1>
+          <h1 id="right_main_text"> Join a Game </h1>
 
-      <input type="text" id = "RoomCode" placeholder="Enter Room Code" />
-      </div>
-
+          <input type="text" id="RoomCode" placeholder="Enter Room Code" />
+        </div>
       </div>
     </div>
   );
