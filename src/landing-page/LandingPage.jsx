@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import "./popup.css";
@@ -6,6 +8,8 @@ import "./popup.css";
 function LandingPage() {
   const [showSignUpModal, setSignUpModal] = useState(false);
   const [showLoginModal, setLoginModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const onOpenModal = () => {
     setSignUpModal(true);
@@ -21,6 +25,24 @@ function LandingPage() {
 
   const onCloseModalclose = () => {
     setLoginModal(false);
+  };
+
+  const onSignUp = () => {
+    // form validation
+
+    // make post request to backend to create user
+
+    // if successful, navigate to join page
+    if (true) navigate("/join");
+  };
+
+  const onLogin = () => {
+    // form validation
+
+    // make get request to backend to check if user exists
+
+    // if successful, navigate to join page
+    if (true) navigate("/join");
   };
 
   return (
@@ -81,7 +103,11 @@ function LandingPage() {
               Please enter your details to sign up.
             </h3>
           </div>
-          <form className="validate-form" novalidate="novalidate">
+          <form
+            className="validate-form"
+            novalidate="novalidate"
+            onSubmit={onSignUp}
+          >
             <div className="form-group">
               <input
                 className="form-control"
@@ -116,12 +142,13 @@ function LandingPage() {
                 aria-required="true"
               />
             </div>
-            <input
-              className="btn"
+            <button
+              className="btn hover:text-amber-700"
               id="sign_up"
-              type="button"
-              value="Get Started"
-            />
+              type="submit"
+            >
+              Get Started
+            </button>
           </form>
         </div>
       </Modal>
@@ -138,7 +165,11 @@ function LandingPage() {
               Please enter your details to log in.
             </h3>
           </div>
-          <form className="validate-form" novalidate="novalidate">
+          <form
+            className="validate-form"
+            novalidate="novalidate"
+            onSubmit={onLogin}
+          >
             <div className="form-group">
               <input
                 className="form-control"
@@ -161,12 +192,13 @@ function LandingPage() {
                 aria-required="true"
               />
             </div>
-            <input
-              className="btn"
+            <button
+              className="btn hover:text-amber-700"
               id="login_btn"
-              type="button"
-              value="Get Started"
-            />
+              type="submit"
+            >
+              Log In
+            </button>
           </form>
         </div>
       </Modal>
