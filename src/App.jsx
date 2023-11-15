@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-import CompetitionPage from "./competition-page/CompetitionPage";
 import JoinPage from "./join-page/JoinPage";
+import PopUp from "./landing-page/PopUp";
+import FullCompPage from "./competition-page/FullCompPage";
 
 function App() {
   return (
     <div className="overflow-hidden">
-      <JoinPage />
+      <PopUp />
     </div>
   );
 }
