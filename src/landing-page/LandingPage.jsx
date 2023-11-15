@@ -4,23 +4,23 @@ import { Modal } from "react-responsive-modal";
 import "./popup.css";
 
 function LandingPage() {
-  const [sign, setSign] = useState(false);
-  const [login, setLogin] = useState(false);
+  const [showSignUpModal, setSignUpModal] = useState(false);
+  const [showLoginModal, setLoginModal] = useState(false);
 
   const onOpenModal = () => {
-    setSign(true);
+    setSignUpModal(true);
   };
 
   const onOpenModalLogin = () => {
-    setLogin(true);
+    setLoginModal(true);
   };
 
   const onCloseModal = () => {
-    setSign(false);
+    setSignUpModal(false);
   };
 
   const onCloseModalclose = () => {
-    setLogin(false);
+    setLoginModal(false);
   };
 
   return (
@@ -70,7 +70,7 @@ function LandingPage() {
       </div>
 
       {/* SIGN UP MODAL */}
-      <Modal open={sign} onClose={onCloseModal}>
+      <Modal open={showSignUpModal} onClose={onCloseModal}>
         <div className="modal-body">
           <div className="modal-display-text">
             <div className="logo-container">
@@ -127,7 +127,7 @@ function LandingPage() {
       </Modal>
 
       {/* LOG IN MODAL */}
-      <Modal open={login} onClose={onCloseModalclose}>
+      <Modal open={showLoginModal} onClose={onCloseModalclose}>
         <div className="modal-body">
           <div className="modal-display-text">
             <div className="logo-container">
