@@ -19,6 +19,10 @@ function LandingPage() {
     setLoginModal(true);
   };
 
+  const guestLogin = () => {
+    navigate("/join");
+  };
+
   const onCloseModal = () => {
     setSignUpModal(false);
   };
@@ -79,7 +83,7 @@ function LandingPage() {
               Log In
             </button>
           </div>
-          <button id="continue-guest" onClick={onOpenModal}>
+          <button id="continue-guest" onClick={guestLogin}>
             Continue as Guest
           </button>
         </div>
