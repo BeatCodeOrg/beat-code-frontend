@@ -6,14 +6,9 @@ import { Modal } from "react-responsive-modal";
 import "./popup.css";
 
 function LandingPage() {
-  const [showSignUpModal, setSignUpModal] = useState(false);
   const [showLoginModal, setLoginModal] = useState(false);
 
   const navigate = useNavigate();
-
-  const onOpenModal = () => {
-    setSignUpModal(true);
-  };
 
   const onOpenModalLogin = () => {
     setLoginModal(true);
@@ -23,21 +18,8 @@ function LandingPage() {
     navigate("/join");
   };
 
-  const onCloseModal = () => {
-    setSignUpModal(false);
-  };
-
   const onCloseModalclose = () => {
     setLoginModal(false);
-  };
-
-  const onSignUp = () => {
-    // form validation
-
-    // make post request to backend to create user
-
-    // if successful, navigate to join page
-    if (true) navigate("/join");
   };
 
   const onLogin = () => {
@@ -76,7 +58,11 @@ function LandingPage() {
             friendly competition with old or new friends.
           </p>
           <div class="nav buttons">
-            <button className="btn" id="signup" onClick={onOpenModal}>
+            <button
+              className="btn"
+              id="signup"
+              onClick={() => navigate("/sign-up")}
+            >
               Sign Up
             </button>
             <button className="btn" id="login" onClick={onOpenModalLogin}>
@@ -94,68 +80,6 @@ function LandingPage() {
           <img id="mac" src="src/assets/mac.png" alt="MacBook" />
         </div>
       </div>
-
-      {/* SIGN UP MODAL */}
-      <Modal open={showSignUpModal} onClose={onCloseModal}>
-        <div className="modal-body">
-          <div className="modal-display-text">
-            <div className="logo-container">
-              <img src="src/assets/logo.png" alt="BEATCODE logo" />
-            </div>
-            <h2 style={{ fontSize: "2em", fontWeight: "600" }}>Welcome</h2>
-            <h3 style={{ fontSize: "1em" }}>
-              Please enter your details to sign up.
-            </h3>
-          </div>
-          <form
-            className="validate-form"
-            novalidate="novalidate"
-            onSubmit={onSignUp}
-          >
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
-                required=""
-                autocomplete="off"
-                aria-required="true"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="password"
-                name="pass"
-                className="form-control"
-                placeholder="Password"
-                required=""
-                autocomplete="off"
-                aria-required="true"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="password"
-                name="pass-verify"
-                className="form-control"
-                placeholder="Verify Password"
-                required=""
-                autocomplete="off"
-                aria-required="true"
-              />
-            </div>
-            <button
-              className="btn hover:text-amber-700"
-              id="sign_up"
-              type="submit"
-            >
-              Get Started
-            </button>
-          </form>
-        </div>
-      </Modal>
 
       {/* LOG IN MODAL */}
       <Modal open={showLoginModal} onClose={onCloseModalclose}>
