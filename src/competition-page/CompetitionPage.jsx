@@ -3,6 +3,9 @@ import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
 import { languageOptions } from "../../constants/languageOptions";
 
+import { Panel, PanelGroup } from "react-resizable-panels";
+import ResizeHandle from "./ResizeHandle";
+
 import { ToastContainer, toast } from "react-toastify"; // used to put like pop up notifications
 import "react-toastify/dist/ReactToastify.css"; // css file for toastify
 
@@ -201,7 +204,7 @@ const CompetitionCode = () => {
           <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
         </div>
       </div>
-      <div className="flex flex-col w-[100%] ml-auto justify-end space-x-4 items-start px-4 py-4">
+      <div className="flex flex-col w-[100%] ml-auto justify-end items-start px-4 py-4">
         <div className="flex flex-col w-full justify-start items-end">
           <CodeEditorWindow
             code={code}
@@ -210,26 +213,21 @@ const CompetitionCode = () => {
             theme={theme.value}
           />
         </div>
-
-        <div className="right-container flex flex-shrink-0 w-[97%] p-4 flex-col">
-          <OutputWindow outputDetails={outputDetails} />
-          <div className="flex flex-col items-end">
-            {/* <CustomInput
-              customInput={customInput}
-              setCustomInput={setCustomInput}
-            /> */}
+        <div className="right-container flex flex-shrink-0 w-[100%] pt-3 flex-col">
+        <OutputWindow outputDetails={outputDetails} />
+          <div className="flex flex-row justify-between">
             <button
               onClick={handleCompile}
               disabled={!code}
               className={[
-                "mt-4 border-1 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
+                "mt-4 border-1 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[3%] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
                 !code ? "opacity-50" : "",
               ].join(" ")}
             >
               {processing ? "Processing..." : "Compile and Execute"}
             </button>
+            {outputDetails && <OutputDetails outputDetails={outputDetails} />}
           </div>
-          {outputDetails && <OutputDetails outputDetails={outputDetails} />}
         </div>
       </div>
     </>
