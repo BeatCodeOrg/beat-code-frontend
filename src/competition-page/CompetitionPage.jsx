@@ -3,9 +3,6 @@ import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
 import { languageOptions } from "../../constants/languageOptions";
 
-import { Panel, PanelGroup } from "react-resizable-panels";
-import ResizeHandle from "./ResizeHandle";
-
 import { ToastContainer, toast } from "react-toastify"; // used to put like pop up notifications
 import "react-toastify/dist/ReactToastify.css"; // css file for toastify
 
@@ -24,6 +21,7 @@ const CompetitionCode = () => {
   const [customInput, setCustomInput] = useState(""); // the custom test cases we have typed
   const [outputDetails, setOutputDetails] = useState(null); // the output details from Judge0
   const [processing, setProcessing] = useState(null); // whether we are processing submitted code
+  const [processingFinal, setProcessingFinal] = useState(null); // whether we're processing FINAL submitted code
   const [theme, setTheme] = useState("cobalt"); // the current theme we are using
   const [language, setLanguage] = useState(languageOptions[0]); // the current programming language we are using
 
@@ -55,6 +53,47 @@ const CompetitionCode = () => {
         console.warn("case not handled!", action, data);
       }
     }
+  };
+
+  // IMPORTANT NOTE: THIS NEEDS TO RUN HIDDEN TESTS AS WELL
+  const handleSubmit = () => {
+    setProcessingFinal(true);
+
+    const formData = {
+      language_id: language.id,
+      // encode source code in base64
+      source_code: btoa(code),
+      stdin: btoa(customInput),
+    };
+
+    console.log(import.meta.env.VITE_RAPID_API_HOST);
+    // Parameters for axios request to Judge0
+    const options = {
+      method: "POST",
+      url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL,
+      params: { base64_encoded: "true", fields: "*" },
+      headers: {
+        "content-type": "application/json",
+        "Content-Type": "application/json",
+        "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
+        "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
+      },
+      data: formData,
+    };
+
+    // Makes get request
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log("res.data", response.data);
+        const token = response.data.token;
+        checkStatus(token);
+      })
+      .catch((err) => {
+        let error = err.response ? err.response.data : err;
+        setProcessingFinal(false);
+        console.log(error);
+      });
   };
 
   const handleCompile = () => {
@@ -128,6 +167,7 @@ const CompetitionCode = () => {
       } else {
         // we have a result
         setProcessing(false);
+        setProcessingFinal(false);
         setOutputDetails(response.data);
         showSuccessToast(`Compiled Successfully!`); // displays success notification
         console.log("response.data", response.data);
@@ -137,6 +177,7 @@ const CompetitionCode = () => {
       // if there was an error in the request
       console.log("err", err);
       setProcessing(false);
+      setProcessingFinal(false);
       showErrorToast();
     }
   };
@@ -204,8 +245,9 @@ const CompetitionCode = () => {
           <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
         </div>
       </div>
-      <div className="flex flex-col w-[100%] ml-auto justify-end items-start px-4 py-4">
-        <div className="flex flex-col w-full justify-start items-end">
+
+      <div className="flex flex-col w-[100%] ml-auto px-4 py-4">
+        <div className="flex flex-col w-full">
           <CodeEditorWindow
             code={code}
             onChange={onChange}
@@ -213,19 +255,33 @@ const CompetitionCode = () => {
             theme={theme.value}
           />
         </div>
-        <div className="right-container flex flex-shrink-0 w-[100%] pt-3 flex-col">
+        <div className="right-container flex w-[100%] pt-3 flex-col">
         <OutputWindow outputDetails={outputDetails} />
           <div className="flex flex-row justify-between">
-            <button
-              onClick={handleCompile}
-              disabled={!code}
-              className={[
-                "mt-4 border-1 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[3%] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
-                !code ? "opacity-50" : "",
-              ].join(" ")}
-            >
-              {processing ? "Processing..." : "Compile and Execute"}
-            </button>
+            <div className = "flex flex-row justify-start h-full">
+              <button
+                onClick={handleCompile}
+                disabled={!code}
+                className={[
+                  "mt-4 border-1 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[100%] mr-3 px-4 py-2 bg-gradient-to-r",
+                  "from-orange-300 to-white hover:shadow transition duration-200 flex-shrink-0",
+                  !code ? "opacity-50" : "",
+                ].join(" ")}
+              >
+                {processing ? "Processing..." : "Run tests"}
+              </button>
+              <button
+                onClick={handleSubmit}
+                disabled={!code}
+                className={[
+                  "mt-4 border-1 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[100%] px-4 py-2 bg-gradient-to-r",
+                  "from-green-300 to-white hover:shadow transition duration-200 flex-shrink-0",
+                  !code ? "opacity-50" : "",
+                ].join(" ")}
+              >
+                {processingFinal ? "Processing..." : "Submit"}
+              </button>
+            </div>
             {outputDetails && <OutputDetails outputDetails={outputDetails} />}
           </div>
         </div>
