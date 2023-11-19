@@ -6,18 +6,19 @@ import ProgressBar from "./ProgressBar";
 import Timer from "./Timer";
 
 function FullCompPage() {
-    const NOW_IN_MS = new Date().getTime();
+  // this will need to be passed in
+    const players = [
+      { progress: 22, bgcolor: '#2f7fff' },
+      { progress: 20, bgcolor: '#33ff48' },
+      { progress: 19, bgcolor: '#c550ff' },
+    ];
 
     return (
       <>
         <div className="flex flex-col h-screen">
-          <div className="top-bar flex justify-end pr-5">
+          <div className="top-bar flex justify-end px-5 pt-3">
             <Timer />
-            <ProgressBar
-                bgcolor="orange"
-                progress="30"
-                height={30}
-            />
+            <ProgressBar players={players} height={30} />
           </div>
           <div className="full-competition-page flex-grow flex">
               <PanelGroup autoSaveId="full-competition-page" direction="horizontal">

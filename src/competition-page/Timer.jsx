@@ -36,10 +36,7 @@ export default class Timer extends Component {
         const { minutes, seconds } = this.state
         return (
             <div className="text-3xl font-bold p-2 rounded-md">
-                { minutes === 0 && seconds === 0
-                    ? <h1>Time's up!</h1>
-                    : <h1>{minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
-                }
+                <h1>{minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
             </div>
         )
     }
