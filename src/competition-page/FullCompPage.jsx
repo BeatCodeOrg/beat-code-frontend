@@ -2,13 +2,22 @@ import { useEffect, useState } from "react";
 import { Panel, PanelGroup } from "react-resizable-panels";
 import CompetitionPage from "./CompetitionPage";
 import ResizeHandle from "./ResizeHandle";
+import ProgressBar from "./ProgressBar";
+import Timer from "./Timer";
 
 function FullCompPage() {
+    const NOW_IN_MS = new Date().getTime();
+
     return (
       <>
         <div className="flex flex-col h-screen">
-          <div className="progress-bar">
-            <h2>TEMPORARY pretend there's a progress bar here</h2>
+          <div className="top-bar flex justify-end pr-5">
+            <Timer />
+            <ProgressBar
+                bgcolor="orange"
+                progress="30"
+                height={30}
+            />
           </div>
           <div className="full-competition-page flex-grow flex">
               <PanelGroup autoSaveId="full-competition-page" direction="horizontal">
