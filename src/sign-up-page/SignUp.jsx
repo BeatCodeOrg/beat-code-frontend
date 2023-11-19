@@ -22,10 +22,17 @@ function SignUp() {
                 setSignUpStatus(JSON.parse(message.body).status);
             });
         };
-
+        
         client.onWebSocketError = (error) => {
-            console.error('WebSocket Error:', error);
+            console.error('Error with websocket', error);
         };
+        
+        client.onStompError = (frame) => {
+            console.error('Broker reported error: ' + frame.headers['message']);
+            console.error('Additional details: ' + frame.body);
+        };
+
+        
 
         client.activate();
         setStompClient(client);
