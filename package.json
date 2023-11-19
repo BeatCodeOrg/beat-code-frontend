@@ -10,6 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< Updated upstream
+=======
+    "@monaco-editor/react": "^4.6.0",
+    "@stomp/stompjs": "^7.0.0",
+    "axios": "^1.5.1",
+    "monaco-themes": "^0.4.4",
+>>>>>>> Stashed changes
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
