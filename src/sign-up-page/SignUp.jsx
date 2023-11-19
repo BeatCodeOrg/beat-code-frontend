@@ -24,7 +24,7 @@ function SignUp() {
                     id="username"
                     placeholder="Username"
                     required=""
-                    autocomplete="off"
+                    autoComplete="off"
                     aria-required="true"
                 />
             </div>
@@ -35,7 +35,7 @@ function SignUp() {
                     className="form-control"
                     placeholder="Password"
                     required=""
-                    autocomplete="off"
+                    autoComplete="off"
                     aria-required="true"
                 />
             </div>
@@ -46,27 +46,27 @@ function SignUp() {
                     className="form-control"
                     placeholder="Verify Password"
                     required=""
-                    autocomplete="off"
+                    autoComplete="off"
                     aria-required="true"
                 />
             </div>
             <div className="sign-up-btn-container">
-                <button class="sign-up-button">
+                <button className="sign-up-button">
                     Compile
                 </button>
             </div>
 
-            <div class="alt-signup-options">
-                <div class="alt-signup-divider">
-                    <span class="alt-signup-divider-line"></span>
-                    <span class="alt-signup-divider-text">OR SIGN UP WITH</span>
-                    <span class="alt-signup-divider-line"></span>
+            <div className="alt-signup-options">
+                <div className="alt-signup-divider">
+                    <span className="alt-signup-divider-line"></span>
+                    <span className="alt-signup-divider-text">OR SIGN UP WITH</span>
+                    <span className="alt-signup-divider-line"></span>
                 </div>
-                <div class="alt-signup-buttons">
-                    <button class="alt-signup-button google">
+                <div className="alt-signup-buttons">
+                    <button className="alt-signup-button google">
                     <img src="src/assets/google_logo.png" alt="Google" /> Google
                     </button>
-                    <button class="alt-signup-button github">
+                    <button className="alt-signup-button github">
                     <img src="src/assets/github_logo.png" alt="GitHub" /> GitHub
                     </button>
                 </div>
