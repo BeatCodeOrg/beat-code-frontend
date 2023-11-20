@@ -1,573 +1,625 @@
 .session-creator {
-    background-color: rgba(255, 255, 255, 1);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.session-creator .overlap-wrapper {
+  background: linear-gradient(180deg, rgba(255, 199, 44, 0.8) 0%, rgba(153, 0, 0, 0.74) 100%);
+  background-color: rgba(255, 255, 255, 1);
+  height: 1117px;
+  width: 1728px;
+  position: relative; /* Added relative positioning */
+}
+
+.session-creator .overlap {
+  height: 1093px;
+  left: 50%;
+  position: absolute; /* Absolute positioning for overlap */
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1677px;
+}
+
+.session-creator .overlap-group {
+  height: 1072px;
+  left: 0;
+  position: absolute;
+  top: 21px;
+  width: 1664px;
+}
+
+.session-creator .group {
+  height: 850px;
+  left: 50%;
+  position: absolute;
+  margin-top: 28%;
+  transform: translate(-50%, -50%);
+  width: 1226px;
+  border-radius: 40px;
+}
+
+.box {
+  height: 694px;
+  width: 1111px;
   
-  .session-creator .overlap-wrapper {
-    background: linear-gradient(180deg, rgba(255, 199, 44, 0.8) 0%, rgba(153, 0, 0, 0.74) 100%);
-    background-color: rgba(255, 255, 255, 1);
-    height: 1117px;
-    width: 1728px;
-  }
-  
-  .session-creator .overlap {
-    height: 1093px;
-    left: 25px;
-    position: relative;
-    top: 24px;
-    width: 1677px;
-  }
-  
-  .session-creator .overlap-group {
-    height: 1072px;
-    left: 0;
-    position: absolute;
-    top: 21px;
-    width: 1664px;
-  }
-  
-  .session-creator .group {
-    height: 1022px;
-    left: 331px;
-    position: absolute;
-    top: 0;
-    width: 1226px;
-  }
-  
-  .session-creator .surface-laptop {
-    height: 484px;
-    left: 0;
-    position: absolute;
-    top: 588px;
-    width: 708px;
-  }
-  
-  .session-creator .vector {
-    height: 292px;
-    left: 48px;
-    position: absolute;
-    top: 698px;
-    width: 432px;
-  }
-  
-  .session-creator .code {
-    color: #361206;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 45px;
-    font-weight: 700;
-    left: 2px;
-    letter-spacing: 2.02px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 769px;
-    transform: rotate(1.26deg);
-    width: 525px;
-  }
-  
-  .session-creator .text-wrapper {
-    color: #361206;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 45px;
-    font-weight: 700;
-    letter-spacing: 2.02px;
-  }
-  
-  .session-creator .span {
-    font-size: 80px;
-    letter-spacing: 3.6px;
-  }
-  
-  .session-creator .div {
-    color: #361206;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 60px;
-    font-weight: 700;
-    left: 432px;
-    letter-spacing: 2.7px;
-    line-height: normal;
-    position: absolute;
-    top: 90px;
-    width: 420px;
-  }
-  
-  .session-creator .question-type {
-    height: 314px;
-    left: 1112px;
-    position: absolute;
-    top: 170px;
-    width: 332px;
-  }
-  
-  .session-creator .question-type-2 {
-    color: #361206;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 35px;
-    font-weight: 700;
-    height: 65px;
-    left: 4px;
-    letter-spacing: 1.57px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 326px;
-  }
-  
-  .session-creator .choice {
-    height: 41px;
-    left: 0;
-    position: absolute;
-    top: 69px;
-    width: 127px;
-  }
-  
-  .session-creator .div-wrapper {
-    background-color: #ffd668;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 125px;
-  }
-  
-  .session-creator .text-wrapper-2 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 9px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 103px;
-  }
-  
-  .session-creator .overlap-group-wrapper {
-    height: 41px;
-    left: 137px;
-    position: absolute;
-    top: 69px;
-    width: 127px;
-  }
-  
-  .session-creator .overlap-2 {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 125px;
-  }
-  
-  .session-creator .choice-2 {
-    height: 41px;
-    left: 0;
-    position: absolute;
-    top: 120px;
-    width: 244px;
-  }
-  
-  .session-creator .overlap-3 {
-    background-color: #ffd668;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 242px;
-  }
-  
-  .session-creator .text-wrapper-3 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 9px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 219px;
-  }
-  
-  .session-creator .choice-3 {
-    height: 41px;
-    left: 0;
-    position: absolute;
-    top: 222px;
-    width: 167px;
-  }
-  
-  .session-creator .overlap-4 {
-    background-color: #ffd668;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 165px;
-  }
-  
-  .session-creator .text-wrapper-4 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 9px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 150px;
-  }
-  
-  .session-creator .choice-4 {
-    height: 41px;
-    left: 175px;
-    position: absolute;
-    top: 222px;
-    width: 89px;
-  }
-  
-  .session-creator .overlap-5 {
-    background-color: #ffd668;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 87px;
-  }
-  
-  .session-creator .text-wrapper-5 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 9px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 65px;
-  }
-  
-  .session-creator .choice-5 {
-    height: 41px;
-    left: 0;
-    position: absolute;
-    top: 171px;
-    width: 111px;
-  }
-  
-  .session-creator .overlap-6 {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 109px;
-  }
-  
-  .session-creator .text-wrapper-6 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 9px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 89px;
-  }
-  
-  .session-creator .choice-6 {
-    height: 41px;
-    left: 0;
-    position: absolute;
-    top: 273px;
-    width: 102px;
-  }
-  
-  .session-creator .overlap-7 {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 100px;
-  }
-  
-  .session-creator .text-wrapper-7 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 8px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 77px;
-  }
-  
-  .session-creator .choice-7 {
-    height: 41px;
-    left: 111px;
-    position: absolute;
-    top: 273px;
-    width: 164px;
-  }
-  
-  .session-creator .overlap-8 {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 162px;
-  }
-  
-  .session-creator .text-wrapper-8 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 14px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 125px;
-  }
-  
-  .session-creator .choice-8 {
-    height: 41px;
-    left: 121px;
-    position: absolute;
-    top: 171px;
-    width: 89px;
-  }
-  
-  .session-creator .overlap-9 {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 5px;
-    height: 41px;
-    position: relative;
-    width: 87px;
-  }
-  
-  .session-creator .text-wrapper-9 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 9px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 7px;
-    width: 62px;
-  }
-  
-  .session-creator .difficulty {
-    height: 130px;
-    left: 1114px;
-    position: absolute;
-    top: 502px;
-    width: 334px;
-  }
-  
-  .session-creator .difficulty-2 {
-    color: #361206;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 35px;
-    font-weight: 700;
-    height: 65px;
-    left: 0;
-    letter-spacing: 1.57px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 326px;
-  }
-  
-  .session-creator .overlap-10 {
-    height: 30px;
-    left: 10px;
-    position: absolute;
-    top: 72px;
-    width: 306px;
-  }
-  
-  .session-creator .line {
-    height: 6px;
-    left: 0;
-    position: absolute;
-    top: 12px;
-    width: 306px;
-  }
-  
-  .session-creator .ellipse {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 15px;
-    height: 30px;
-    left: 15px;
-    position: absolute;
-    top: 0;
-    width: 30px;
-  }
-  
-  .session-creator .ellipse-2 {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 15px;
-    height: 30px;
-    left: 138px;
-    position: absolute;
-    top: 0;
-    width: 30px;
-  }
-  
-  .session-creator .ellipse-3 {
-    background-color: #f9f7ef;
-    border: 2px solid;
-    border-color: #361206;
-    border-radius: 15px;
-    height: 30px;
-    left: 261px;
-    position: absolute;
-    top: 0;
-    width: 30px;
-  }
-  
-  .session-creator .ellipse-4 {
-    background-color: #ffc72c;
-    border: 1px solid;
-    border-color: #361206;
-    border-radius: 11px;
-    height: 22px;
-    left: 19px;
-    position: absolute;
-    top: 4px;
-    width: 22px;
-  }
-  
-  .session-creator .text-wrapper-10 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 1px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 107px;
-    width: 77px;
-  }
-  
-  .session-creator .text-wrapper-11 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 124px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 107px;
-    width: 77px;
-  }
-  
-  .session-creator .text-wrapper-12 {
-    color: #000000bd;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 15px;
-    font-weight: 700;
-    height: 23px;
-    left: 247px;
-    letter-spacing: 0.68px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 107px;
-    width: 77px;
-  }
-  
-  .session-creator .polygon {
-    height: 198px;
-    left: 1362px;
-    position: absolute;
-    top: 838px;
-    width: 302px;
-  }
-  
-  .session-creator .img {
-    height: 169px;
-    left: 1373px;
-    position: absolute;
-    top: 853px;
-    width: 255px;
-  }
-  
-  .session-creator .text-wrapper-13 {
-    color: #ffc72c;
-    font-family: "Montserrat-ExtraBold", Helvetica;
-    font-size: 40px;
-    font-weight: 800;
-    height: 80px;
-    left: 1386px;
-    letter-spacing: 1.8px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    text-shadow: 0px 4px 4px #00000026;
-    top: 892px;
-    width: 167px;
-  }
-  
-  .session-creator .close {
-    height: 60px;
-    left: 1617px;
-    position: absolute;
-    top: 0;
-    width: 60px;
-  }
-  
+}
+
+
+.rectangle {
+  background-color: #f9f7ef;
+  height: 586px;
+  left: 270px;
+  position: absolute;
+  top: 84px;
+  width: 1123px;
+}
+
+.session-creator .surface-laptop {
+  height: 484px;
+  left: -20px;
+  position: absolute;
+  top: 508px;
+  width: 708px;
+}
+
+.session-creator .vector {
+  height: 292px;
+  left: 28px;
+  position: absolute;
+  top: 618px;
+  width: 432px;
+}
+
+.session-creator .code {
+  color: #361206;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 45px;
+  font-weight: 700;
+  left: -10px;
+  letter-spacing: 2.02px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 709px;
+  transform: rotate(-1.40deg);
+  width: 525px;
+}
+
+.session-creator .text-wrapper {
+  color: #361206;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 2.02px;
+}
+
+.session-creator .span {
+  font-size: 80px;
+  letter-spacing: 3.6px;
+}
+
+.session-creator .div {
+  color: #361206;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 50px;
+  font-weight: 700;
+  left: 362px;
+  letter-spacing: 2.7px;
+  line-height: normal;
+  position: absolute;
+  top: 130px;
+  width: 420px;
+}
+
+.session-creator .question-type {
+  height: 314px;
+  left: 1000px;
+  position: absolute;
+  top: 170px;
+  width: 332px;
+}
+
+.session-creator .question-type-2 {
+  color: #361206;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 35px;
+  font-weight: 700;
+  height: 65px;
+  left: -10px;
+  letter-spacing: 1.57px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 326px;
+}
+
+.session-creator .choice {
+  height: 41px;
+  left: 0;
+  position: absolute;
+  top: 69px;
+  width: 127px;
+}
+
+.session-creator .div-wrapper {
+  background-color: #ffd668;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 125px;
+}
+
+.session-creator .text-wrapper-2 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 9px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 103px;
+}
+
+.session-creator .overlap-group-wrapper {
+  height: 41px;
+  left: 137px;
+  position: absolute;
+  top: 69px;
+  width: 127px;
+}
+
+.session-creator .overlap-2 {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 125px;
+}
+
+.session-creator .choice-2 {
+  height: 41px;
+  left: 0;
+  position: absolute;
+  top: 120px;
+  width: 244px;
+}
+
+.session-creator .overlap-3 {
+  background-color: #ffd668;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 242px;
+}
+
+.session-creator .text-wrapper-3 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 9px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 219px;
+}
+
+.session-creator .choice-3 {
+  height: 41px;
+  left: 0;
+  position: absolute;
+  top: 222px;
+  width: 167px;
+}
+
+.session-creator .overlap-4 {
+  background-color: #ffd668;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 165px;
+}
+
+.session-creator .text-wrapper-4 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 9px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 150px;
+}
+
+.session-creator .choice-4 {
+  height: 41px;
+  left: 175px;
+  position: absolute;
+  top: 222px;
+  width: 89px;
+}
+
+.session-creator .overlap-5 {
+  background-color: #ffd668;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 87px;
+}
+
+.session-creator .text-wrapper-5 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 9px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 65px;
+}
+
+.session-creator .choice-5 {
+  height: 41px;
+  left: 0;
+  position: absolute;
+  top: 171px;
+  width: 111px;
+}
+
+.session-creator .overlap-6 {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 109px;
+}
+
+.session-creator .text-wrapper-6 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 9px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 89px;
+}
+
+.session-creator .choice-6 {
+  height: 41px;
+  left: 0;
+  position: absolute;
+  top: 273px;
+  width: 102px;
+}
+
+.session-creator .overlap-7 {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 100px;
+}
+
+.session-creator .text-wrapper-7 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 8px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 77px;
+}
+
+.session-creator .choice-7 {
+  height: 41px;
+  left: 111px;
+  position: absolute;
+  top: 273px;
+  width: 164px;
+}
+
+.session-creator .overlap-8 {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 162px;
+}
+
+.session-creator .text-wrapper-8 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 14px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 125px;
+}
+
+.session-creator .choice-8 {
+  height: 41px;
+  left: 121px;
+  position: absolute;
+  top: 171px;
+  width: 89px;
+}
+
+.session-creator .overlap-9 {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  height: 41px;
+  position: relative;
+  width: 87px;
+}
+
+.session-creator .text-wrapper-9 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 9px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 62px;
+}
+
+.session-creator .difficulty {
+  height: 130px;
+  left: 1014px;
+  position: absolute;
+  top: 502px;
+  width: 334px;
+}
+
+.session-creator .difficulty-2 {
+  color: #361206;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 35px;
+  font-weight: 700;
+  height: 65px;
+  left: 0;
+  letter-spacing: 1.57px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 326px;
+}
+
+.session-creator .overlap-10 {
+  height: 30px;
+  left: 10px;
+  position: absolute;
+  top: 72px;
+  width: 306px;
+}
+
+.session-creator .line {
+  height: 6px;
+  left: 0;
+  position: absolute;
+  top: 12px;
+  width: 306px;
+}
+
+.session-creator .ellipse {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 15px;
+  height: 30px;
+  left: 15px;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+.session-creator .ellipse-2 {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 15px;
+  height: 30px;
+  left: 138px;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+.session-creator .ellipse-3 {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 15px;
+  height: 30px;
+  left: 261px;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+.session-creator .ellipse-4 {
+  background-color: #ffc72c;
+  border: 1px solid;
+  border-color: #361206;
+  border-radius: 11px;
+  height: 22px;
+  left: 19px;
+  position: absolute;
+  top: 4px;
+  width: 22px;
+}
+
+.session-creator .text-wrapper-10 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 1px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 107px;
+  width: 77px;
+}
+
+.session-creator .text-wrapper-11 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 124px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 107px;
+  width: 77px;
+}
+
+.session-creator .text-wrapper-12 {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 23px;
+  left: 247px;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 107px;
+  width: 77px;
+}
+
+.session-creator .polygon {
+  height: 200px;
+  left: 1262px;
+  position: absolute;
+  top: 688px;
+  width: 302px;
+}
+
+.session-creator .img {
+  height: 160px;
+  left: 1275px;
+  position: absolute;
+  top: 708px;
+  width: 255px;
+}
+
+.session-creator .text-wrapper-13 {
+  color: #ffc72c;
+  font-family: "Montserrat-ExtraBold", Helvetica;
+  font-size: 40px;
+  font-weight: 800;
+  height: 160px;
+  left: 1275px;
+  position: absolute;
+  top: 755px;
+  letter-spacing: 1.8px;
+  line-height: normal;
+  text-align: center;
+  text-shadow: 0px 4px 4px #00000026;
+  width: 167px;
+}
+
+.session-creator .close {
+  height: 60px;
+  left: 1617px;
+  position: absolute;
+  top: 0;
+  width: 60px;
+}
+
+
+.code {
+  position: absolute; 
+  color: #361206;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 80px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 2.02px;
+  line-height: normal;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transform: rotate(1.26deg);
+  width: 525px;
+}
+
+.code.text-wrapper {
+  color: #361206;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 2.02px;
+}
+
+.code .span {
+  font-size: 70px;
+  letter-spacing: 3.6px;
+}
+
+
+
