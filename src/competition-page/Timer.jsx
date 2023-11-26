@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class Timer extends Component {
     state = {
-        minutes: 10,
+        minutes: 7,
         seconds: 0,
     }
 
@@ -18,6 +18,9 @@ export default class Timer extends Component {
             if (seconds === 0) {
                 if (minutes === 0) {
                     clearInterval(this.myInterval)
+                    if (this.props.onTimerZero) {
+                        this.props.onTimerZero();
+                    }
                 } else {
                     this.setState(({ minutes }) => ({
                         minutes: minutes - 1,

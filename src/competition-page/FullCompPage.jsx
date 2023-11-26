@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Panel, PanelGroup } from "react-resizable-panels";
+import { useNavigate } from "react-router-dom";
 import CompetitionPage from "./CompetitionPage";
 import ResizeHandle from "./ResizeHandle";
 import ProgressBar from "./ProgressBar";
@@ -8,16 +9,24 @@ import Timer from "./Timer";
 function FullCompPage() {
   // this will need to be passed in
     const players = [
-      { progress: 22, bgcolor: '#2f7fff' },
-      { progress: 20, bgcolor: '#33ff48' },
-      { progress: 19, bgcolor: '#c550ff' },
+      { username: 'Player1', testCasesPassed: 5, pointsGained: 50, progress: 50, bgcolor: '#2f7fff' },
+      { username: 'Player2', testCasesPassed: 3, pointsGained: 30, progress: 30, bgcolor: '#ff2ff5' },
+      // Add more players as needed
     ];
+
+    const navigate = useNavigate();
+
+    const handleTimerZero = () => {
+      console.log('handleTimerZero called');
+      console.log('players:', players);
+      navigate('/gameover', { state: { players:players } });
+    };
 
     return (
       <>
         <div className="flex flex-col h-screen">
           <div className="top-bar flex justify-end px-5 pt-3">
-            <Timer />
+            <Timer onTimerZero={handleTimerZero}/>
             <ProgressBar players={players} height={30} />
           </div>
           <div className="full-competition-page flex-grow flex">
