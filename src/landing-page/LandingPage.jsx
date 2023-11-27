@@ -3,17 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+import { useUser } from "../UserContext";
 import "./popup.css";
 
 function LandingPage() {
-  const [showSignUpModal, setSignUpModal] = useState(false);
   const [showLoginModal, setLoginModal] = useState(false);
-
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { setUser } = useUser();
   const navigate = useNavigate();
-
-  const onOpenModal = () => {
-    setSignUpModal(true);
-  };
 
   const onOpenModalLogin = () => {
     setLoginModal(true);
@@ -23,31 +21,48 @@ function LandingPage() {
     navigate("/join");
   };
 
-  const onCloseModal = () => {
-    setSignUpModal(false);
-  };
-
   const onCloseModalclose = () => {
     setLoginModal(false);
   };
 
-  const onSignUp = () => {
-    // form validation
-
-    // make post request to backend to create user
-
-    // if successful, navigate to join page
-    if (true) navigate("/join");
+  const onLogin = async (e) => {
+    e.preventDefault();
+  
+    // Form validation and other logic...
+  
+    try {
+      const response = await fetch("http://localhost:8080/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: 1,
+          username: username,
+          password: password,
+          score: 2,
+        }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        const userId = data.userId; // Adjust based on your backend response
+        // Store userId in state or context
+        // For example, you can have a global context to store user information
+        // Update the following line based on your context setup
+        // userContext.setUser({ userId, username, ...otherUserData });
+        setUser({ userId });
+        console.log("Login successful. Data:", data);
+        navigate("/join");
+      } else {
+        // Handle login failure, show error message, etc.
+        console.error("HTTP error:", response.status);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
-
-  const onLogin = () => {
-    // form validation
-
-    // make get request to backend to check if user exists
-
-    // if successful, navigate to join page
-    if (true) navigate("/join");
-  };
+  
 
   return (
     <>
@@ -75,8 +90,12 @@ function LandingPage() {
             Test your programming skills with LeetCode style questions in
             friendly competition with old or new friends.
           </p>
-          <div class="nav buttons">
-            <button className="btn" id="signup" onClick={onOpenModal}>
+          <div className="nav buttons">
+            <button
+              className="btn"
+              id="signup"
+              onClick={() => navigate("/sign-up")}
+            >
               Sign Up
             </button>
             <button className="btn" id="login" onClick={onOpenModalLogin}>
@@ -95,68 +114,6 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* SIGN UP MODAL */}
-      <Modal open={showSignUpModal} onClose={onCloseModal}>
-        <div className="modal-body">
-          <div className="modal-display-text">
-            <div className="logo-container">
-              <img src="src/assets/logo.png" alt="BEATCODE logo" />
-            </div>
-            <h2 style={{ fontSize: "2em", fontWeight: "600" }}>Welcome</h2>
-            <h3 style={{ fontSize: "1em" }}>
-              Please enter your details to sign up.
-            </h3>
-          </div>
-          <form
-            className="validate-form"
-            novalidate="novalidate"
-            onSubmit={onSignUp}
-          >
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
-                required=""
-                autocomplete="off"
-                aria-required="true"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="password"
-                name="pass"
-                className="form-control"
-                placeholder="Password"
-                required=""
-                autocomplete="off"
-                aria-required="true"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="password"
-                name="pass-verify"
-                className="form-control"
-                placeholder="Verify Password"
-                required=""
-                autocomplete="off"
-                aria-required="true"
-              />
-            </div>
-            <button
-              className="btn hover:text-amber-700"
-              id="sign_up"
-              type="submit"
-            >
-              Get Started
-            </button>
-          </form>
-        </div>
-      </Modal>
-
       {/* LOG IN MODAL */}
       <Modal open={showLoginModal} onClose={onCloseModalclose}>
         <div className="modal-body">
@@ -171,7 +128,7 @@ function LandingPage() {
           </div>
           <form
             className="validate-form"
-            novalidate="novalidate"
+            noValidate="novalidate"
             onSubmit={onLogin}
           >
             <div className="form-group">
@@ -180,9 +137,9 @@ function LandingPage() {
                 type="text"
                 name="username"
                 placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required=""
-                autocomplete="off"
-                aria-required="true"
               />
             </div>
             <div className="form-group">
@@ -191,9 +148,9 @@ function LandingPage() {
                 name="pass"
                 className="form-control"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required=""
-                autocomplete="off"
-                aria-required="true"
               />
             </div>
             <button
