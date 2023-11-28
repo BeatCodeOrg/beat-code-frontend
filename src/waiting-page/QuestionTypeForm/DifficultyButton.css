@@ -16,10 +16,5 @@
   background-color: #ffc72c;
   border: 1px solid;
   border-color: #361206;
-  border-radius: 11px;
-  height: 22px;
-  left: 19px;
-  position: absolute;
-  top: 4px;
-  width: 22px;
+  border-radius: 0.8rem;
 }
