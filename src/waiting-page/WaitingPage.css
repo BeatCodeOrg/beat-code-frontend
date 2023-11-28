@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 
 .session-creator .overlap-wrapper {
@@ -13,50 +14,50 @@
     rgba(153, 0, 0, 0.74) 100%
   );
   background-color: rgba(255, 255, 255, 1);
-  height: 1117px;
-  width: 1728px;
+  height: 70rem;
+  width: 108rem;
   position: relative; /* Added relative positioning */
 }
 
 .session-creator .overlap {
-  height: 1093px;
+  height: 68rem;
   left: 50%;
   position: absolute; /* Absolute positioning for overlap */
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 1677px;
+  width: 104rem;
 }
 
 .session-creator .overlap-group {
-  height: 1072px;
+  height: 68rem;
   left: 0;
   position: absolute;
   top: 21px;
-  width: 1664px;
+  width: 104rem;
 }
 
 .session-creator .group {
-  height: 850px;
-  left: 50%;
+  height: 50rem;
+  left: 57%;
   position: absolute;
-  margin-top: 28%;
+  margin-top: 23%;
   transform: translate(-50%, -50%);
-  width: 1226px;
+  width: 60rem;
   border-radius: 40px;
 }
 
 .box {
-  height: 694px;
-  width: 1111px;
+  height: 37rem;
+  width: 60rem;
 }
 
 .rectangle {
   background-color: #f9f7ef;
-  height: 586px;
-  left: 270px;
+  height: 36.25rem;
+  left: 16.875rem;
   position: absolute;
   top: 84px;
-  width: 1123px;
+  width: 60rem;
 }
 
 .session-creator .surface-laptop {
