@@ -2,14 +2,20 @@ import { useState } from "react";
 
 import "./FilterChoice.css";
 
-function FilterChoice({ filterName }) {
+function FilterChoice({ filterName, updateQData }) {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
     if (!isClicked) {
-      console.log("dsfafsd");
+      updateQData((prev) => ({
+        ...prev,
+        questionType: [...prev.questionType, filterName],
+      }));
     } else {
-      console.log("dsfafsd");
+      updateQData((prev) => ({
+        ...prev,
+        questionType: prev.questionType.filter((d) => d !== filterName),
+      }));
     }
     setIsClicked(!isClicked);
   };
