@@ -7,7 +7,11 @@
 }
 
 .session-creator .overlap-wrapper {
-  background: linear-gradient(180deg, rgba(255, 199, 44, 0.8) 0%, rgba(153, 0, 0, 0.74) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 199, 44, 0.8) 0%,
+    rgba(153, 0, 0, 0.74) 100%
+  );
   background-color: rgba(255, 255, 255, 1);
   height: 1117px;
   width: 1728px;
@@ -44,9 +48,7 @@
 .box {
   height: 694px;
   width: 1111px;
-  
 }
-
 
 .rectangle {
   background-color: #f9f7ef;
@@ -84,7 +86,7 @@
   position: absolute;
   text-align: center;
   top: 709px;
-  transform: rotate(-1.40deg);
+  transform: rotate(-1.4deg);
   width: 525px;
 }
 
@@ -498,12 +500,11 @@
   background-color: #ffc72c;
   border: 1px solid;
   border-color: #361206;
-  border-radius: 11px;
-  height: 22px;
-  left: 19px;
-  position: absolute;
-  top: 4px;
-  width: 22px;
+  border-radius: 1rem;
+  /* height: 22px; */
+  /* left: 19px; */
+  /* top: 4px; */
+  /* width: 22px; */
 }
 
 .session-creator .text-wrapper-10 {
@@ -591,9 +592,8 @@
   width: 60px;
 }
 
-
 .code {
-  position: absolute; 
+  position: absolute;
   color: #361206;
   font-family: "Montserrat-Bold", Helvetica;
   font-size: 80px;
@@ -620,6 +620,3 @@
   font-size: 70px;
   letter-spacing: 3.6px;
 }
-
-
-
