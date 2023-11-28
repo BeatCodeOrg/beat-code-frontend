@@ -1,6 +1,8 @@
 import React from "react";
 import "./WaitingPage.css";
 
+import QuestionTypeForm from "./QuestionTypeForm/QuestionTypeForm";
+
 const WaitingPage = () => {
   return (
     <div className="session-creator">
@@ -20,71 +22,9 @@ const WaitingPage = () => {
               />
             </div>
             <div className="div">PLAYERS</div>
-            <div className="question-type">
-              <div className="question-type-2">QUESTION TYPE</div>
-              <div className="choice">
-                <div className="div-wrapper">
-                  <div className="text-wrapper-2">Algorithms</div>
-                </div>
-              </div>
-              <div className="overlap-group-wrapper">
-                <div className="overlap-2">
-                  <div className="text-wrapper-2">Hash Table</div>
-                </div>
-              </div>
-              <div className="choice-2">
-                <div className="overlap-3">
-                  <div className="text-wrapper-3">Dynamic Programming</div>
-                </div>
-              </div>
-              <div className="choice-3">
-                <div className="overlap-4">
-                  <div className="text-wrapper-4">Binary Search</div>
-                </div>
-              </div>
-              <div className="choice-4">
-                <div className="overlap-5">
-                  <div className="text-wrapper-5">Graph</div>
-                </div>
-              </div>
-              <div className="choice-5">
-                <div className="overlap-6">
-                  <div className="text-wrapper-6">Sorting</div>
-                </div>
-              </div>
-              <div className="choice-6">
-                <div className="overlap-7">
-                  <div className="text-wrapper-7">Greedy</div>
-                </div>
-              </div>
-              <div className="choice-7">
-                <div className="overlap-8">
-                  <div className="text-wrapper-8">Priority Queue</div>
-                </div>
-              </div>
-              <div className="choice-8">
-                <div className="overlap-9">
-                  <div className="text-wrapper-9">Array</div>
-                </div>
-              </div>
-            </div>
-            <div className="difficulty">
-              <div className="difficulty-2">DIFFICULTY</div>
-              <div className="overlap-10">
-                <img
-                  className="line"
-                  alt="Line"
-                  src="src/assets/waiting-page/Line.png"
-                />
-                <div className="ellipse" />
-                <div className="ellipse-2" />
-                <div className="ellipse-3" />
-                <div className="ellipse-4" />
-              </div>
-              <div className="text-wrapper-10">Easy</div>
-              <div className="text-wrapper-11">Medium</div>
-              <div className="text-wrapper-12">Hard</div>
-            </div>
+
+            <QuestionTypeForm />
+
             <img
               className="polygon"
               alt="Polygon"

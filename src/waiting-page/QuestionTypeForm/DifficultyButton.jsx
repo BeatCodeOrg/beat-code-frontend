@@ -21,7 +21,9 @@ function DifficultyButton({ label, updateQData }) {
   };
   return (
     <div className="flex flex-col items-center" onClick={handleClick}>
-      <div className={`ellipse ${selected ? "filled-ellipse" : ""}`} />
+      <div
+        className={`checkbox-unfilled ${selected ? "checkbox-filled" : ""}`}
+      />
       <p className="text-sm">{label}</p>
     </div>
   );
