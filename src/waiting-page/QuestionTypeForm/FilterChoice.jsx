@@ -15,14 +15,13 @@ function FilterChoice({ filterName }) {
   };
 
   return (
-    <div className="choice" onClick={handleClick}>
-      <div
-        className={`div-wrapper ${
-          isClicked ? "when-clicked" : "when-not-clicked"
-        }`}
-      >
-        <h1 className="text-wrapper">{filterName}</h1>
-      </div>
+    <div
+      onClick={handleClick}
+      className={`p-2 mx-1 my-1 inline div-wrapper ${
+        isClicked ? "when-clicked" : "when-not-clicked"
+      }`}
+    >
+      <h1 className="text-wrapper">{filterName}</h1>
     </div>
   );
 }
