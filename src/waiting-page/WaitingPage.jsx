@@ -18,12 +18,16 @@ const WaitingPage = () => {
             <div className="box">
               <div
                 className="rectangle"
+                style={{ zIndex: -1 }}
                 src="src/assets/waiting-page/rectangle.png"
               />
             </div>
-            <div className="div">PLAYERS</div>
-
-            <QuestionTypeForm />
+            <div className="div">
+              <h1>PLAYERS</h1>
+            </div>
+            <div className="translate-y-20 translate-x-88">
+              <QuestionTypeForm />
+            </div>
 
             <img
               className="polygon"
