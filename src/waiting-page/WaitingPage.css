@@ -47,48 +47,50 @@
 }
 
 .box {
-  height: 37rem;
-  width: 60rem;
+  height: 20rem;
+  top: -5.5%;
+  position: absolute; 
+  margin-left: 9.45%;
 }
 
 .rectangle {
   background-color: #f9f7ef;
-  height: 36.25rem;
-  left: 16.875rem;
+  height: 34.95rem;
   position: absolute;
-  top: 84px;
-  width: 60rem;
+  top: 80px;
+  left: 21.85rem; 
+  width: 55.2rem;
 }
 
 .session-creator .surface-laptop {
-  height: 484px;
-  left: -20px;
+  height: 55%;
+  left: 2%;
   position: absolute;
-  top: 508px;
-  width: 708px;
+  top: 49%;
+  width: 43%;
 }
 
 .session-creator .vector {
-  height: 292px;
-  left: 28px;
+  height: 33.8%;
+  left: 5.05%;
   position: absolute;
-  top: 618px;
-  width: 432px;
+  top: 61.2%;
+  width: 26.2%;
 }
 
 .session-creator .code {
   color: #361206;
   font-family: "Montserrat-Bold", Helvetica;
-  font-size: 45px;
+  font-size: 0.2rem;
   font-weight: 700;
-  left: -10px;
-  letter-spacing: 2.02px;
+  letter-spacing: 2ex;
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 709px;
+  top: 70%;
+  left: 8.5%; 
   transform: rotate(-1.4deg);
-  width: 525px;
+  width: 20%;
 }
 
 .session-creator .text-wrapper {
@@ -107,37 +109,37 @@
 .session-creator .div {
   color: #361206;
   font-family: "Montserrat-Bold", Helvetica;
-  font-size: 60px;
+  font-size: 3rem;
   font-weight: 700;
-  left: 362px;
+  left: 33.5%;
   letter-spacing: 2.7px;
   line-height: normal;
   position: absolute;
-  top: 130px;
+  top: 5%;
   width: 420px;
 }
 
 .session-creator .question-type {
   height: 314px;
-  left: 1000px;
+  left: 62%;
   position: absolute;
-  top: 170px;
-  width: 332px;
+  top: 10%;
+  width: 60rem;
 }
 
 .session-creator .question-type-2 {
   color: #361206;
   font-family: "Montserrat-Bold", Helvetica;
-  font-size: 35px;
+  font-size: 2rem;
   font-weight: 700;
   height: 65px;
-  left: -10px;
+  left: 1%;
   letter-spacing: 1.57px;
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 0;
-  width: 326px;
+  top: 2.5%;
+  width: 30%;
 }
 
 .session-creator .choice {
@@ -423,7 +425,7 @@
 }
 
 .session-creator .difficulty {
-  height: 130px;
+  height: 20%;
   left: 1014px;
   position: absolute;
   top: 502px;
@@ -433,7 +435,7 @@
 .session-creator .difficulty-2 {
   color: #361206;
   font-family: "Montserrat-Bold", Helvetica;
-  font-size: 35px;
+  font-size: 2rem;
   font-weight: 700;
   height: 65px;
   left: 0;
@@ -441,16 +443,15 @@
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 0;
+  top: -25%;
   width: 326px;
 }
 
 .session-creator .overlap-10 {
-  height: 30px;
-  left: 10px;
+  height: 2rem;
   position: absolute;
-  top: 72px;
-  width: 306px;
+  top: -2.5%;
+  width: 20rem;
 }
 
 .session-creator .line {
@@ -515,12 +516,12 @@
   font-size: 15px;
   font-weight: 700;
   height: 23px;
-  left: 1px;
+  left: -2%;
   letter-spacing: 0.68px;
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 107px;
+  top: 15%;
   width: 77px;
 }
 
@@ -530,12 +531,12 @@
   font-size: 15px;
   font-weight: 700;
   height: 23px;
-  left: 124px;
+  left: 35%;
   letter-spacing: 0.68px;
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 107px;
+  top: 15%;
   width: 77px;
 }
 
@@ -545,45 +546,45 @@
   font-size: 15px;
   font-weight: 700;
   height: 23px;
-  left: 247px;
+  left: 72%;
   letter-spacing: 0.68px;
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 107px;
+  top: 15%;
   width: 77px;
 }
 
 .session-creator .polygon {
-  height: 200px;
-  left: 1262px;
+  height: 15%;
+  left: 77.5%;
   position: absolute;
-  top: 688px;
-  width: 302px;
+  top: 57.5%;
+  width: 15%;
 }
 
 .session-creator .img {
-  height: 160px;
-  left: 1275px;
+  height: 11%;
+  left: 78.6%;
   position: absolute;
-  top: 708px;
-  width: 255px;
+  top: 59.5%;
+  width: 11%;
 }
 
 .session-creator .text-wrapper-13 {
   color: #ffc72c;
   font-family: "Montserrat-ExtraBold", Helvetica;
-  font-size: 40px;
+  font-size: 2.55rem;
   font-weight: 800;
-  height: 160px;
-  left: 1275px;
+  height: 11%;
+  left: 77.2%;
   position: absolute;
-  top: 755px;
+  top: 62.5%;
+  width: 11%;
   letter-spacing: 1.8px;
   line-height: normal;
   text-align: center;
   text-shadow: 0px 4px 4px #00000026;
-  width: 167px;
 }
 
 .session-creator .close {
