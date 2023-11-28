@@ -74,7 +74,7 @@ const WaitingPage = () => {
                 <img
                   className="line"
                   alt="Line"
-                  src="src/assets/waiting-page/line.png"
+                  src="src/assets/waiting-page/Line.png"
                 />
                 <div className="ellipse" />
                 <div className="ellipse-2" />
