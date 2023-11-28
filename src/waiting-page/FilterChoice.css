@@ -1,0 +1,25 @@
+.text-wrapper {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  text-align: center;
+  top: 7px;
+}
+
+.div-wrapper {
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 5px;
+  position: relative;
+}
+
+.when-not-clicked {
+  background-color: #f9f7ef;
+}
+
+.when-clicked {
+  background-color: #ffd668;
+}
