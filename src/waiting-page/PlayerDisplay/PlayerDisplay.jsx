@@ -1,8 +1,10 @@
-function PlayerDisplay({ players }) {
+import PlayerBox from "./PlayerBox";
+
+function PlayerDisplay() {
   return (
-    <div className="player-display">
-      <div className="player-display__name"></div>
-      <div className="player-display__score"></div>
+    <div className="flex flex-col">
+      <PlayerBox player={{ username: "seanyboy", name: "Sean" }} />
+      <PlayerBox player={{ username: "vishyboy", name: "Vish" }} />
     </div>
   );
 }

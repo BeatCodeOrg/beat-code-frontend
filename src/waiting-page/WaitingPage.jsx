@@ -1,6 +1,7 @@
 import React from "react";
 import "./WaitingPage.css";
 
+import PlayerDisplay from "./PlayerDisplay/PlayerDisplay";
 import QuestionTypeForm from "./QuestionTypeForm/QuestionTypeForm";
 
 const WaitingPage = () => {
@@ -24,6 +25,7 @@ const WaitingPage = () => {
             </div>
             <div className="div">
               <h1>PLAYERS</h1>
+              <PlayerDisplay />
             </div>
             <div className="translate-y-20 translate-x-88">
               <QuestionTypeForm />
