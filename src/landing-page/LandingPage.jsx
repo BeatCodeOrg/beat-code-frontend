@@ -11,6 +11,7 @@ function LandingPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useUser();
+
   const navigate = useNavigate();
 
   const onOpenModalLogin = () => {
@@ -27,33 +28,37 @@ function LandingPage() {
 
   const onLogin = async (e) => {
     e.preventDefault();
-  
+
     // Form validation and other logic...
-  
+
+    const encUsername = encodeURIComponent(username);
+    const encPassword = encodeURIComponent(password);
+
+    const url = `http://localhost:8080/users/login/${encUsername}/${encPassword}`;
     try {
-      const response = await fetch("http://localhost:8080/users/login", {
-        method: "POST",
+      const response = await fetch(url, {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
-        body: JSON.stringify({
-          id: 1,
-          username: username,
-          password: password,
-          score: 2,
-        }),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
-        const userId = data.userId; // Adjust based on your backend response
+
+        // Adjust based on your backend response
         // Store userId in state or context
         // For example, you can have a global context to store user information
         // Update the following line based on your context setup
         // userContext.setUser({ userId, username, ...otherUserData });
-        setUser({ userId });
-        console.log("Login successful. Data:", data);
-        navigate("/join");
+
+        if (data.message == "unauthorized") {
+          alert("Incorrect username or password");
+        } else {
+          setUser({ userId: data.user_id });
+          navigate("/join");
+        }
       } else {
         // Handle login failure, show error message, etc.
         console.error("HTTP error:", response.status);
@@ -62,7 +67,6 @@ function LandingPage() {
       console.error("Error during login:", error);
     }
   };
-  
 
   return (
     <>
