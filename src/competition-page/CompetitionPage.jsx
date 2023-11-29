@@ -31,13 +31,15 @@ const CompetitionCode = ({ players, updatePlayer }) => {
   const [showSubmitModal, setSubmitModal] = useState(false);
   const [waitingMessage, setWaitingMessage] = useState(false);
 
+  // NOT SURE
+  const [formData, setFormData] = useState({
+    User: '',
+    sourceCode: '',
+    questionID: ''
+});
+
   const enterPress = useKeyPress("Enter"); // a hook that returns true if enter is pressed
   const ctrlPress = useKeyPress("Control"); // a hook that returns true if cntrl is pressed
-
-  // const { user } = useUser();
-  // if (!user) {
-  //   alert("not logged in");
-  // }
 
   const onOpenModalSubmit = () => {
     setSubmitModal(true);
@@ -77,101 +79,71 @@ const CompetitionCode = ({ players, updatePlayer }) => {
 
   const handleSubmit = async () => {
     setWaitingMessage(true);
-
-    // setProcessingFinal(true);
-
-    // const requestData = {
-    //   roomId: 111,
-    //   userId: user.userId,
-    //   code: code,
-    // };
-
-    // try {
-    //     const response = await axios.post("/games/submit-code", requestData);
-    //     const scores = response.data;
-    //     // Handle scores or any other response data as needed
-    //     console.log("Scores:", scores);
-    // } catch (error) {
-    //     // Handle errors
-    //     console.error("Error submitting code:", error);
-    // } finally {
-    //     setProcessingFinal(false);
-    // }
-
-    // const formData = {
-    //   language_id: language.id,
-    //   // encode source code in base64
-    //   source_code: btoa(code),
-    //   stdin: btoa(customInput),
-    // };
-
-    // console.log(import.meta.env.VITE_RAPID_API_HOST);
-    // // Parameters for axios request to Judge0
-    // const options = {
-    //   method: "POST",
-    //   url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL,
-    //   params: { base64_encoded: "true", fields: "*" },
-    //   headers: {
-    //     "content-type": "application/json",
-    //     "Content-Type": "application/json",
-    //     "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
-    //     "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
-    //   },
-    //   data: formData,
-    // };
-
-    // // Makes get request
-    // axios
-    //   .request(options)
-    //   .then(function (response) {
-    //     console.log("res.data", response.data);
-    //     const token = response.data.token;
-    //     checkStatus(token);
-    //   })
-    //   .catch((err) => {
-    //     let error = err.response ? err.response.data : err;
-    //     setProcessingFinal(false);
-    //     console.log(error);
-    //   });
   };
 
-  const handleCompile = () => {
-    setProcessing(true); // showing loading animation
-    const formData = {
-      language_id: language.id,
-      // encode source code in base64
-      source_code: btoa(code + "\nsolution([2,7,11,15], 9)"),
-      stdin: btoa(customInput),
-    };
+  // const handleCompile = () => {
+  //   setProcessing(true); // showing loading animation
+  //   const formData = {
+  //     language_id: language.id,
+  //     // encode source code in base64
+  //     source_code: btoa(code + "\nsolution([2,7,11,15], 9)"),
+  //     stdin: btoa(customInput),
+  //   };
 
-    console.log(import.meta.env.VITE_RAPID_API_HOST);
-    // Parameters for axios request to Judge0
-    const options = {
-      method: "POST",
-      url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL,
-      params: { base64_encoded: "true", fields: "*" },
-      headers: {
-        "content-type": "application/json",
-        "Content-Type": "application/json",
-        "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
-        "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
-      },
-      data: formData,
-    };
+  //   console.log(import.meta.env.VITE_RAPID_API_HOST);
+  //   // Parameters for axios request to Judge0
+  //   const options = {
+  //     method: "POST",
+  //     url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL,
+  //     params: { base64_encoded: "true", fields: "*" },
+  //     headers: {
+  //       "content-type": "application/json",
+  //       "Content-Type": "application/json",
+  //       "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
+  //       "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
+  //     },
+  //     data: formData,
+  //   };
 
-    // Makes get request
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log("res.data", response.data);
-        const token = response.data.token;
-        checkStatus(token);
-      })
-      .catch((err) => {
-        let error = err.response ? err.response.data : err;
-        setProcessing(false);
-        console.log(error);
+  //   // Makes get request
+  //   axios
+  //     .request(options)
+  //     .then(function (response) {
+  //       console.log("res.data", response.data);
+  //       const token = response.data.token;
+  //       checkStatus(token);
+  //     })
+  //     .catch((err) => {
+  //       let error = err.response ? err.response.data : err;
+  //       setProcessing(false);
+  //       console.log(error);
+  //     });
+  // };
+
+  const handleCompile = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/game/compile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      // updates player at index 0
+      updatePlayer(0, (player) => {
+        // Assuming player has a property testCasesPassed
+        player.testCasesPassed = response;
+        player.pointsGained += response*10;
+        player.progress += response/3;
+        return player;
+      });
+
+    } catch (error) {
+      // Handle any network or other errors that may occur during the request
+      console.error("Error during user creation:", error);
+    }
   };
 
   // checks to see if we have received a successful response from Judge0
@@ -209,16 +181,6 @@ const CompetitionCode = ({ players, updatePlayer }) => {
         setProcessingFinal(false);
         setOutputDetails(response.data);
         showSuccessToast(`Compiled Successfully!`); // displays success notification
-
-        if (statusId === 3) {
-          updatePlayer(0, (player) => {
-            // Assuming player has a property testCasesPassed
-            player.testCasesPassed += 10;
-            player.pointsGained += 100;
-            player.progress += 99;
-            return player;
-          });
-        }
 
         console.log("response.data", response.data);
         return;
