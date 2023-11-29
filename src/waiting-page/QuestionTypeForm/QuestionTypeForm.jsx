@@ -42,7 +42,7 @@ function QuestionTypeForm() {
         <div className="flex flex-col items-center my-4 ">
           <img
             className="mb-2"
-            src="src/assets/waiting-page/Line.png"
+            src="/assets/waiting-page/Line.png"
             alt="line"
           />
           <div className="flex justify-between w-11/12 -translate-y-6">

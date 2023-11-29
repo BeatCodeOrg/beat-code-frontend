@@ -20,7 +20,7 @@ function JoinPage() {
       throw new Error(message);
     } else {
       const data = await response.json();
-      navigate(`/session/${data.roomCode}`);
+      navigate(`/session/${data.room_code}`);
     }
   };
   return (

@@ -16,14 +16,14 @@ const WaitingPage = () => {
             <img
               className="group"
               alt="Group"
-              src="src/assets/waiting-page/computer.png"
+              src="/assets/waiting-page/computer.png"
             />
 
             <div className="box">
               <div
                 className="rectangle"
                 style={{ zIndex: -1 }}
-                src="src/assets/waiting-page/rectangle.png"
+                src="/assets/waiting-page/rectangle.png"
               />
             </div>
             <div className="div">
@@ -37,12 +37,12 @@ const WaitingPage = () => {
             <img
               className="polygon"
               alt="Polygon"
-              src="src/assets/waiting-page/polygon1.png"
+              src="/assets/waiting-page/polygon1.png"
             />
             <img
               className="img"
               alt="Polygon"
-              src="src/assets/waiting-page/polygon2.png"
+              src="/assets/waiting-page/polygon2.png"
             />
             <div className="text-wrapper-13">3...</div>
           </div>
@@ -53,12 +53,12 @@ const WaitingPage = () => {
       <img
         className="surface-laptop"
         alt="Surface laptop"
-        src="src/assets/waiting-page/surfacelaptop.png"
+        src="/assets/waiting-page/surfacelaptop.png"
       />
       <img
         className="vector"
         alt="Vector"
-        src="src/assets/waiting-page/vector1.png"
+        src="/assets/waiting-page/vector1.png"
       />
 
       <p className="code">
