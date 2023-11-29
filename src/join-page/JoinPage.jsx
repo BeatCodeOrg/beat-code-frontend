@@ -1,6 +1,28 @@
 import "./JoinPage.css";
 
+import { useNavigate } from "react-router-dom";
+
 function JoinPage() {
+  const navigate = useNavigate();
+
+  const generateRoom = async () => {
+    const response = await fetch("http://localhost:8080/rooms/create/vish", {
+      // temp vish
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+    } else {
+      const data = await response.json();
+      navigate(`/session/${data.roomCode}`);
+    }
+  };
   return (
     <div className="join-page">
       <svg
@@ -25,8 +47,8 @@ function JoinPage() {
             y2="1117"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#AD3432" />
-            <stop offset="1" stop-color="#F2AB6C" />
+            <stop stopColor="#AD3432" />
+            <stop offset="1" stopColor="#F2AB6C" />
           </linearGradient>
         </defs>
       </svg>
@@ -45,7 +67,10 @@ function JoinPage() {
 
           <h1 id="left_main_text"> Make a Room </h1>
 
-          <button id="generateRoom"> Generate New Room </button>
+          <button id="generateRoom" onClick={generateRoom}>
+            {" "}
+            Generate New Room{" "}
+          </button>
         </div>
 
         <div className="rightSide">
