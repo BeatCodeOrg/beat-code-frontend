@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Client } from "@stomp/stompjs";
 import "react-responsive-modal/styles.css";
 import "./SignUp.css";
@@ -11,6 +13,8 @@ function SignUp() {
     password: "",
     passwordVerify: "",
   });
+
+  const navigate = useNavigate();
 
   // useEffect(() => {
   //     const client = new Client({
@@ -77,6 +81,7 @@ function SignUp() {
           alert("Username already exists");
         } else {
           alert("User created successfully");
+          navigate("/join");
         }
       } else {
         console.error("User creation failed");
