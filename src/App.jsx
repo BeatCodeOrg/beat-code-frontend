@@ -16,9 +16,8 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/join" element={<JoinPage />} />
       <Route path="/competition" element={<FullCompPage />} />
-      <Route path="/waiting" element={<WaitingPage />} />
-      <Route path="/question" element={<QuestionTypeForm />} />
-      <Route path="/sign-up" element={<SignUp />}/>
+      <Route path="/session/:roomCode" element={<WaitingPage />} />
+      <Route path="/sign-up" element={<SignUp />} />
       <Route path="/gameover" element={<GameOver />} />
     </Routes>
   );

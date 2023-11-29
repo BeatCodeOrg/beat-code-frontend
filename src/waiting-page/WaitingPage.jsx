@@ -1,10 +1,13 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
 import "./WaitingPage.css";
 
 import PlayerDisplay from "./PlayerDisplay/PlayerDisplay";
 import QuestionTypeForm from "./QuestionTypeForm/QuestionTypeForm";
 
 const WaitingPage = () => {
+  const { roomCode } = useParams();
   return (
     <div className="session-creator">
       <div className="overlap-wrapper">
@@ -63,7 +66,7 @@ const WaitingPage = () => {
           Code:
           <br />
         </span>
-        <span className="span">AJ48Y</span>
+        <span className="span">{roomCode}</span>
       </p>
     </div>
   );
