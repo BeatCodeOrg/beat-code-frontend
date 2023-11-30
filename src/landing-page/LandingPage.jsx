@@ -73,7 +73,7 @@ function LandingPage() {
       {/* NAV BAR */}
       <div className="navBar">
         <div className="navBarLogo">
-          <img src="src/assets/logo.png" alt="BEATCODE logo" />
+          <img src="/assets/logo.png" alt="BEATCODE logo" />
         </div>
         <h1>BeatCode</h1>
       </div>
@@ -112,9 +112,9 @@ function LandingPage() {
         </div>
         {/* TEMPORARY IMAGE */}
         <div className="images">
-          <img id="ellipse1" src="src/assets/Ellipse1.png" alt="Ellipse1" />
-          <img id="ellipse2" src="src/assets/Ellipse2.png" alt="Ellipse2" />
-          <img id="mac" src="src/assets/mac.png" alt="MacBook" />
+          <img id="ellipse1" src="/assets/Ellipse1.png" alt="Ellipse1" />
+          <img id="ellipse2" src="/assets/Ellipse2.png" alt="Ellipse2" />
+          <img id="mac" src="/assets/mac.png" alt="MacBook" />
         </div>
       </div>
 
@@ -123,7 +123,7 @@ function LandingPage() {
         <div className="modal-body">
           <div className="modal-display-text">
             <div className="logo-container">
-              <img src="src/assets/logo.png" alt="BEATCODE logo" />
+              <img src="/assets/logo.png" alt="BEATCODE logo" />
             </div>
             <h2 style={{ fontSize: "2em", fontWeight: "600" }}>Welcome back</h2>
             <h3 style={{ fontSize: "1em" }}>
