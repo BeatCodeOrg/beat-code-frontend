@@ -30,7 +30,7 @@ const WaitingPage = () => {
               <h1>PLAYERS</h1>
               <PlayerDisplay />
             </div>
-            <div className="translate-y-20 translate-x-88">
+            <div className="type-form">
               <QuestionTypeForm />
             </div>
 
@@ -40,7 +40,7 @@ const WaitingPage = () => {
               src="/assets/waiting-page/polygon1.png"
             />
             <img
-              className="img"
+              className="img" id = "smaller_polygon"
               alt="Polygon"
               src="/assets/waiting-page/polygon2.png"
             />

@@ -8,6 +8,10 @@ body {
   );
 }
 
+h1 {
+  margin-left: -2%;
+}
+
 .navBar {
   display: flex;
   align-items: left;
@@ -17,16 +21,19 @@ body {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  flex-shrink: 0;
+}
 
-  padding: 0.6em;
+.navBarLogo {
+  margin-right: 0px;
+  padding-right: 0px;
+  width: 5%;
 }
 
 .navBarLogo img {
-  width: 35px;
-  height: 35px;
-  transform: rotate(15.714deg);
-  flex-shrink: 0;
+  margin-top: 5%;
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
 }
 
 .landing-body {
