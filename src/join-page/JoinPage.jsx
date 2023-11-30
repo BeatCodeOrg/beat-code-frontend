@@ -2,12 +2,17 @@ import "./JoinPage.css";
 
 import { useNavigate } from "react-router-dom";
 
+// for testing userContext works:
+import { useUser } from "../use-user-context/UserContext";
+
 function JoinPage() {
   const navigate = useNavigate();
 
+  // for testing userContext works:
+  const { username } = useUser();
+
   const generateRoom = async () => {
-    const response = await fetch("http://localhost:8080/rooms/create/vish", {
-      // temp vish
+    const response = await fetch("http://localhost:8080/rooms/create/" + username, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
