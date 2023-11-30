@@ -39,7 +39,7 @@ function FullCompPage() {
         <div className="flex flex-col h-screen">
           <div className="top-bar flex justify-end px-5 pt-3">
             <Timer onTimerZero={handleTimerZero}/>
-            <ProgressBar players={players} height={30} />
+            <ProgressBar players={players} height={25} />
           </div>
           <div className="full-competition-page flex-grow flex">
               <PanelGroup autoSaveId="full-competition-page" direction="horizontal">
@@ -59,7 +59,7 @@ function FullCompPage() {
                 </Panel>
                 <ResizeHandle />
                 <Panel defaultSizePercentage={65}>
-                  <div className="right-IDE p-4">
+                  <div className="right-IDE px-2">
                     <CompetitionPage players={players} updatePlayer={updatePlayer}/>
                   </div>
                 </Panel>
