@@ -37,10 +37,10 @@
 }
 
 .session-creator .group {
-  height: 50rem;
-  left: 57%;
+  height: 43rem;
+  left: 51%;
   position: absolute;
-  margin-top: 23%;
+  margin-top: 22%;
   transform: translate(-50%, -50%);
   width: 60rem;
   border-radius: 40px;
@@ -50,32 +50,37 @@
   height: 20rem;
   top: -5.5%;
   position: absolute; 
-  margin-left: 9.45%;
+  margin-left: 8.45%;
 }
 
 .rectangle {
   background-color: #f9f7ef;
-  height: 34.95rem;
+  height: 31rem;
   position: absolute;
-  top: 80px;
-  left: 21.85rem; 
+  top: 30%;
+  left: 16.85rem;  
   width: 55.2rem;
 }
 
+.session-creator .type-form {
+  margin-left: 28%;
+  margin-top: 5%;
+}
+
 .session-creator .surface-laptop {
-  height: 55%;
-  left: 2%;
+  height: 45%;
+  left: 0.5%;
   position: absolute;
-  top: 49%;
-  width: 43%;
+  top: 57%;
+  width: 37%;
 }
 
 .session-creator .vector {
-  height: 33.8%;
-  left: 5.05%;
+  height: 27.5%;
+  left: 3.05%;
   position: absolute;
-  top: 61.2%;
-  width: 26.2%;
+  top: 67%;
+  width: 22.5%;
 }
 
 .session-creator .code {
@@ -87,8 +92,8 @@
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 70%;
-  left: 8.5%; 
+  top: 73%;
+  left: 5%; 
   transform: rotate(-1.4deg);
   width: 20%;
 }
@@ -111,11 +116,12 @@
   font-family: "Montserrat-Bold", Helvetica;
   font-size: 3rem;
   font-weight: 700;
-  left: 33.5%;
+  text-align: center;
+  left: 28.5%;
   letter-spacing: 2.7px;
   line-height: normal;
   position: absolute;
-  top: 5%;
+  top: 8%;
   width: 420px;
 }
 
@@ -554,11 +560,16 @@
   width: 77px;
 }
 
+.session-creator #smaller_polygon {
+  top: 54.5%;
+  left: 74.5%;
+}
+
 .session-creator .polygon {
   height: 15%;
-  left: 77.5%;
+  left: 73.5%;
   position: absolute;
-  top: 57.5%;
+  top: 52.5%;
   width: 15%;
 }
 
@@ -566,7 +577,7 @@
   height: 11%;
   left: 78.6%;
   position: absolute;
-  top: 59.5%;
+  top: 69.5%;
   width: 11%;
 }
 
@@ -576,9 +587,9 @@
   font-size: 2.55rem;
   font-weight: 800;
   height: 11%;
-  left: 77.2%;
+  left: 72.2%;
   position: absolute;
-  top: 62.5%;
+  top: 57%;
   width: 11%;
   letter-spacing: 1.8px;
   line-height: normal;
@@ -613,12 +624,12 @@
 .code.text-wrapper {
   color: #361206;
   font-family: "Montserrat-Bold", Helvetica;
-  font-size: 45px;
+  font-size: 35px;
   font-weight: 700;
   letter-spacing: 2.02px;
 }
 
 .code .span {
-  font-size: 70px;
+  font-size: 50px;
   letter-spacing: 3.6px;
 }

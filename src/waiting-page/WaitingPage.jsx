@@ -58,7 +58,7 @@ const WaitingPage = () => {
               <h1>PLAYERS</h1>
                 {arr.map((e,index)=><div key ={e.username}style={{width:"100px",height:"30px",marginTop:"15px"}}>{e.username}</div>)}
             </div>
-            <div className="translate-y-20 translate-x-88">
+            <div className="translate-y-20">
               <QuestionTypeForm />
             </div>
 
@@ -68,7 +68,7 @@ const WaitingPage = () => {
               src="src/assets/waiting-page/polygon1.png"
             />
             <img
-              className="img"
+              className="img" id = "smaller_polygon"
               alt="Polygon"
               src="src/assets/waiting-page/polygon2.png"
             />

@@ -23,7 +23,7 @@ function QuestionTypeForm() {
 
   return (
     <div>
-      <form className="flex flex-col items-center" style={{position:'absolute',right:'290px'}}>
+      <form className="flex flex-col items-center" style={{position:'absolute',right:'30vw'}}>
         <h1 className="font-semibold text-3xl my-2 tracking-wider text-title-brown">
           QUESTION TYPE
         </h1>
