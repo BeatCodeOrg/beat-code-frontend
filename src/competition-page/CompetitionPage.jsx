@@ -249,7 +249,8 @@ const CompetitionCode = ({ players, updatePlayer }) => {
             theme={theme.value}
           />
         </div>
-        <div className="right-container flex w-[100%] pt-3 flex-col">
+        <div className="bg-[#fff3de] border-2 border-black mt-3 rounded">
+        <div className="right-container flex m-3 flex-col">
         <OutputWindow outputDetails={outputDetails} />
           <div className="flex flex-row justify-between">
             <div>{outputDetails && <OutputDetails outputDetails={outputDetails} />}</div>
@@ -279,6 +280,8 @@ const CompetitionCode = ({ players, updatePlayer }) => {
             </div>
           </div>
         </div>
+        </div>
+        
       </div>
       {/* Submit IN MODAL */}
       <Modal open={showSubmitModal} onClose={onCloseModalclose} showCloseIcon={!waitingMessage} 

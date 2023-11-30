@@ -9,13 +9,13 @@ const OutputDetails = ({ outputDetails }) => {
       </p> */}
       <p className="text-xs">
         Memory:{" "}
-        <span className="font-semibold px-2 py-1 rounded-md bg-gray-100">
+        <span className="font-semibold px-2 py-1 rounded-md bg-amber-200">
           {outputDetails?.memory}
         </span>
       </p>
       <p className="text-xs">
         Time:{" "}
-        <span className="font-semibold px-2 py-1 rounded-md bg-gray-100">
+        <span className="font-semibold px-2 py-1 rounded-md bg-amber-200">
           {outputDetails?.time}
         </span>
       </p>

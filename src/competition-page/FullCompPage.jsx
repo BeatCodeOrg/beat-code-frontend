@@ -42,7 +42,7 @@ function FullCompPage() {
             <ProgressBar players={players} height={25} />
           </div>
           <div className="full-competition-page flex-grow flex">
-              <div className="left-problem-desc ml-5 mb-8 mt-2 w-[30%] h-[85vh] rounded bg-[#2b363c] text-[#d3d1cf]">
+              <div className="left-problem-desc border-black border-2 ml-5 mb-8 mt-2 w-[30%] h-[88vh] rounded bg-[#2b363c] text-[#d3d1cf]">
                 <h2 className="problem-desc-title uppercase pl-5 pt-3 text-4xl font-bold tracking-wider relative">
                   Two Sum
                 </h2>

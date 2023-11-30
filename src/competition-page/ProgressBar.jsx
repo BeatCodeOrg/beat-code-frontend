@@ -4,7 +4,7 @@ const ProgressBar = ({ players, height }) => {
   const Parentdiv = {
     height: height,
     width: '65%',
-    backgroundColor: 'whitesmoke',
+    backgroundColor: '#fff3de',
     borderRadius: 40,
     margin: 10,
     position: 'relative',

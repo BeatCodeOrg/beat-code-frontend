@@ -9,7 +9,7 @@ export const customSelectStyles = {
     color: "#000",
     fontSize: "0.7rem",
     lineHeight: "1rem",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fffaf2",
     cursor: "pointer",
     border: "2px solid #000000",
     boxShadow: "5px 5px 0px 0px rgba(0,0,0);",
@@ -25,7 +25,7 @@ export const customSelectStyles = {
       fontSize: "0.7rem",
       lineHeight: "1rem",
       width: "100%",
-      background: "#fff",
+      background: "#fffaf2",
       ":hover": {
         backgroundColor: "rgb(243 244 246)",
         color: "#000",
