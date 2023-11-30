@@ -1,0 +1,26 @@
+.filter-text {
+  color: #000000bd;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.68px;
+  line-height: normal;
+  text-align: center;
+}
+
+.filter-div {
+  border-color: #361206;
+  border-radius: 5px;
+}
+
+.when-not-clicked {
+  background-color: #f9f7ef;
+  border: 0.1rem solid;
+  padding: 0.5rem;
+}
+
+.when-clicked {
+  background-color: #ffd668;
+  padding: 0.53rem;
+  border: 0.08rem solid;
+}

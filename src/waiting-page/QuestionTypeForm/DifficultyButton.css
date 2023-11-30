@@ -1,0 +1,20 @@
+.checkbox-unfilled {
+  background-color: #f9f7ef;
+  border: 2px solid;
+  border-color: #361206;
+  border-radius: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  /* height: 30px; */
+  /* left: 15px; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* width: 30px; */
+}
+
+.checkbox-filled {
+  background-color: #ffc72c;
+  border: 1px solid;
+  border-color: #361206;
+  border-radius: 0.8rem;
+}

@@ -1,0 +1,143 @@
+.title-h2{
+    font-family: "Montserrat", Arial, sans-serif;
+    color: #FFF;
+    font-size: 3em;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sign-up-msg{
+    font-family: "Montserrat", Arial, sans-serif;
+    color: #4F311C;
+    font-size: 1.4em;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.sign-up-container {
+    width: 65%;
+    margin: 0 auto;
+    background: #f9f7ef;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  }
+
+.form-group{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  box-sizing: border-box; 
+  width: 100%; 
+  padding: 0.5em;
+  border: 2px solid #4F311C; 
+  border-radius: 4px; 
+  background-color: #f9f9f9; 
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+.sign-up-btn-container{
+    /* center button within the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.sign-up-button {
+    width: 175px;
+    color: #c35f3b;
+    background-color: #ffc72c;
+    border: 2px solid #4F311C;
+    border-radius: 20px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+  
+.sign-up-button:hover {
+    color: #FFF;
+    background-color: #e6b422;
+    border: 2px solid #311e11;
+    transition: transform 0.3s;
+}
+
+.alt-signup-options {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+.alt-signup-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.alt-signup-divider-line {
+    flex-grow: 1;
+    height: 1px;
+    /* color of the line */
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.alt-signup-divider-text {
+    color: #666;
+    padding: 0 10px;
+}
+
+.alt-signup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.alt-signup-button {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.alt-signup-button img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.google {
+    background-color: #fff;
+    color: #000;
+}
+
+.github {
+    background-color: #fff;
+    color: #000;
+}
+
+.alt-signup-button:hover {
+    border-color: #888;
+}
+
