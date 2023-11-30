@@ -24,7 +24,7 @@ def twoSum(self, nums, target):
     :rtype: List[int]
     """`; // probably have a diff default for each problem
 
-const CompetitionCode = ({submitEvent}) => {
+const CompetitionCode = ({players, updatePlayer}) => {
   const [code, setCode] = useState(pythonDefault); // refers to the code we have typed
   const [outputDetails, setOutputDetails] = useState(""); // the output details from Judge0
   const [processing, setProcessing] = useState(null); // whether we are processing submitted code
@@ -83,33 +83,6 @@ const CompetitionCode = ({submitEvent}) => {
      else return;
   };
 
-  // const handleSubmit = async () => {
-  //    if(inputStatu) {
-  //     const url = 'http://localhost:8080/judge/getGrade'
-  //     const username = sessionStorage.getItem('username');
-  //     const requestData = {
-  //       username,
-  //       sourceCode:code
-  //     };
-  //     console.log(requestData)
-  //     const response = await fetch(url,{
-  //       headers:{
-  //         "Content-Type": "application/json",
-  //       },
-  //       method:'POST',
-  //       body:JSON.stringify(requestData)
-  //     });
-       
-  //     if(response.ok){
-  //       const data = await response.json();
-  //       const userGrade = data.body.grade;
-  //       sessionStorage.setItem('userGrade',userGrade);
-  //       changeStatu(()=>false);
-  //     }
-  //   }
-  //    else return;
-
-  
   // }
   // submitEvent(handleSubmit);
   const handleSubmit = async () => {
@@ -137,58 +110,21 @@ const CompetitionCode = ({submitEvent}) => {
       const data = await response.json();
       const userGrade = data.body.grade;
       setOutputDetails(`user grade is ${userGrade}`);
+      // MANUAL UPDATING OF player elliexing
+      updatePlayer(0, (player) => {
+        // Assuming player has a property testCasesPassed
+        player.testCasesPassed += userGrade;
+        player.pointsGained += userGrade * 10;
+        player.progress += userGrade / 3;
+        return player;
+      });
       // sessionStorage.setItem('userGrade',userGrade);
       // useRoute('/gameover');
+      setProcessing(false); 
     }
   
   };
 
-  // checks to see if we have received a successful response from Judge0
-  // if successful, get the output details and save it to outputDetails
-  // const checkStatus = async (token) => {
-  //   // checking the /submissions/:token endpoint
-  //   const url = import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL + "/" + token;
-  //   console.log(url);
-  //   const options = {
-  //     method: "GET",
-  //     url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL + "/" + token,
-  //     params: { base64_encoded: "true", fields: "*" },
-  //     headers: {
-  //       "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
-  //       "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
-  //     },
-  //   };
-
-  //   try {
-  //     let response = await axios.request(options);
-  //     let statusId = response.data.status?.id; // statusId is # from 1-14
-  //     // 1,2 = processing | 3 = accepted | 5 = Time Exceeded
-  //     // 6 = Compilation Error
-
-  //     // Processed - we have a result
-  //     if (statusId === 1 || statusId === 2) {
-  //       // still processing
-  //       setTimeout(() => {
-  //         checkStatus(token);
-  //       }, 2000);
-  //       return;
-  //     } else {
-  //       // we have a result
-  //       setProcessing(false);
-  //       setProcessingFinal(false);
-  //       setOutputDetails(response.data);
-  //       showSuccessToast(`Compiled Successfully!`); // displays success notification
-  //       console.log("response.data", response.data);
-  //       return;
-  //     }
-  //   } catch (err) {
-  //     // if there was an error in the request
-  //     console.log("err", err);
-  //     setProcessing(false);
-  //     setProcessingFinal(false);
-  //     showErrorToast();
-  //   }
-  // };
   function handleThemeChange(th) {
     const theme = th;
     console.log("theme...", theme);
@@ -269,7 +205,8 @@ const CompetitionCode = ({submitEvent}) => {
         <div className="right-container flex m-3 flex-col">
         <OutputWindow outputDetails={outputDetails} />
           <div className="flex flex-row justify-between">
-            <div>{outputDetails && <OutputDetails outputDetails={outputDetails} />}</div>
+            <div></div>
+            {/* <div>{outputDetails && <OutputDetails outputDetails={outputDetails} />}</div> */}
             <div className = "flex flex-row justify-end h-full">
               <button
                 onClick={handleCompile}
