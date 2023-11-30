@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Routes, Route } from "react-router-dom";
-import { WebSocketContext } from "./game-socket/WebSocketContext";
+import WebSocketContextProvider from "./game-socket/WebSocketContext";
 
 import JoinPage from "./join-page/JoinPage";
 import LandingPage from "./landing-page/LandingPage";
@@ -12,7 +12,7 @@ import GameOver from "./game-over/GameOver";
 
 function App() {
   return (
-    <WebSocketContext.Provider>
+    <WebSocketContextProvider>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/join" element={<JoinPage />} />
@@ -21,7 +21,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/gameover" element={<GameOver />} />
       </Routes>
-    </WebSocketContext.Provider>
+    </WebSocketContextProvider>
   );
 }
 

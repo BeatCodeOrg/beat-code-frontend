@@ -6,14 +6,14 @@ import "./WaitingPage.css";
 import PlayerDisplay from "./PlayerDisplay/PlayerDisplay";
 import QuestionTypeForm from "./QuestionTypeForm/QuestionTypeForm";
 
-import { GameSocket } from "../game-socket/Game";
+import { useWebSocket } from "../game-socket/WebSocketContext";
 
 const WaitingPage = () => {
   const { roomCode } = useParams();
-  const [stompClient, setStompClient] = useState(null);
+  const { stompClient, players, initSocket } = useWebSocket();
 
   useEffect(() => {
-    // setStompClient(GameSocket("http://localhost:8080/ws", "vish", roomCode));
+    initSocket("vish", 1, roomCode);
   }, []);
 
   function sendMessage() {
@@ -30,7 +30,7 @@ const WaitingPage = () => {
               src="/assets/waiting-page/computer.png"
             />
 
-            <div onClick={sendMessage} className="box">
+            <div className="box">
               <div
                 className="rectangle"
                 style={{ zIndex: -1 }}
