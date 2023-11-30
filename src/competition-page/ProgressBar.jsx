@@ -3,7 +3,7 @@ import React from 'react';
 const ProgressBar = ({ players, height }) => {
   const Parentdiv = {
     height: height,
-    width: '90%',
+    width: '65%',
     backgroundColor: 'whitesmoke',
     borderRadius: 40,
     margin: 10,
