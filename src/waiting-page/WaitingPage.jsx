@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import "./WaitingPage.css";
@@ -6,8 +6,19 @@ import "./WaitingPage.css";
 import PlayerDisplay from "./PlayerDisplay/PlayerDisplay";
 import QuestionTypeForm from "./QuestionTypeForm/QuestionTypeForm";
 
+import { GameSocket } from "../game-socket/Game";
+
 const WaitingPage = () => {
   const { roomCode } = useParams();
+  const [stompClient, setStompClient] = useState(null);
+
+  useEffect(() => {
+    // setStompClient(GameSocket("http://localhost:8080/ws", "vish", roomCode));
+  }, []);
+
+  function sendMessage() {
+    stompClient.send(`/app/room/connect/${roomCode}/${"vish"}/${1}`, {});
+  }
   return (
     <div className="session-creator">
       <div className="overlap-wrapper">
@@ -19,7 +30,7 @@ const WaitingPage = () => {
               src="/assets/waiting-page/computer.png"
             />
 
-            <div className="box">
+            <div onClick={sendMessage} className="box">
               <div
                 className="rectangle"
                 style={{ zIndex: -1 }}
