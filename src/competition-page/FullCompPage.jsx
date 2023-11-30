@@ -55,7 +55,7 @@ function FullCompPage() {
                 <br/><strong>Explanation:</strong> <code>nums[0] + nums[1] == 9</code>
                 </p>
               </div>
-              <div className="right-IDE w-[70%] pl-6 top-5 left-[30%] fixed">
+              <div className="right-IDE w-[70%] pl-6 top-4 left-[30%] fixed">
                 <CompetitionPage players={players} updatePlayer={updatePlayer}/>
               </div>
           </div>

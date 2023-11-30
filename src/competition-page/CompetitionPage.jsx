@@ -252,7 +252,8 @@ const CompetitionCode = ({ players, updatePlayer }) => {
         <div className="right-container flex w-[100%] pt-3 flex-col">
         <OutputWindow outputDetails={outputDetails} />
           <div className="flex flex-row justify-between">
-            <div className = "flex flex-row justify-start h-full">
+            <div>{outputDetails && <OutputDetails outputDetails={outputDetails} />}</div>
+            <div className = "flex flex-row justify-end h-full">
               <button
                 onClick={handleCompile}
                 disabled={!code}
@@ -276,7 +277,6 @@ const CompetitionCode = ({ players, updatePlayer }) => {
                 {processingFinal ? "Processing..." : "SUBMIT"}
               </button>
             </div>
-            {outputDetails && <OutputDetails outputDetails={outputDetails} />}
           </div>
         </div>
       </div>
