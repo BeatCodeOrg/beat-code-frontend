@@ -118,7 +118,7 @@ function SignUp() {
       {/* NAV BAR */}
       <div className="navBar">
         <div className="navBarLogo">
-          <img src="src/assets/logo.png" alt="BEATCODE logo" />
+          <img src="/assets/logo.png" alt="BEATCODE logo" />
         </div>
         <h1>BeatCode</h1>
       </div>
