@@ -21,9 +21,7 @@ const WaitingPage = () => {
 
   const startGame = () => {
     console.log("asdfadsf");
-    console.log(players);
     sendMessage(`/app/start-game/${roomCode}`, {});
-    console.log(players);
   };
 
   return (

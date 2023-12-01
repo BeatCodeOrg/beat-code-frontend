@@ -35,7 +35,7 @@ const CompetitionCode = () => {
   const enterPress = useKeyPress("Enter"); // a hook that returns true if enter is pressed
   const ctrlPress = useKeyPress("Control"); // a hook that returns true if cntrl is pressed
 
-  const { submitCode, starterCode, gameState } = useWebSocket();
+  const { submitCode, starterCode, gameState, totalTestCases } = useWebSocket();
   const { username } = useUser();
 
   // const { user } = useUser();
@@ -96,63 +96,6 @@ const CompetitionCode = () => {
     submitCode(username, code, language.id, onCodeSubmitCallback);
   };
 
-  // checks to see if we have received a successful response from Judge0
-  // if successful, get the output details and save it to outputDetails
-  const checkStatus = async (token) => {
-    // checking the /submissions/:token endpoint
-    const url = import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL + "/" + token;
-    console.log(url);
-    const options = {
-      method: "GET",
-      url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL + "/" + token,
-      params: { base64_encoded: "true", fields: "*" },
-      headers: {
-        "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
-        "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
-      },
-    };
-
-    try {
-      let response = await axios.request(options);
-      let statusId = response.data.status?.id; // statusId is # from 1-14
-      // 1,2 = processing | 3 = accepted | 5 = Time Exceeded
-      // 6 = Compilation Error
-
-      // Processed - we have a result
-      if (statusId === 1 || statusId === 2) {
-        // still processing
-        setTimeout(() => {
-          checkStatus(token);
-        }, 2000);
-        return;
-      } else {
-        // we have a result
-        // setProcessing(false);
-        // setProcessingFinal(false);
-        // setOutputDetails(response.data);
-        // showSuccessToast(`Compiled Successfully!`); // displays success notification
-        //
-        // if (statusId === 3) {
-        //   updatePlayer(0, (player) => {
-        //     // Assuming player has a property testCasesPassed
-        //     player.testCasesPassed += 10;
-        //     player.pointsGained += 100;
-        //     player.progress += 99;
-        //     return player;
-        //   });
-        // }
-
-        // console.log("response.data", response.data);
-        return;
-      }
-    } catch (err) {
-      // if there was an error in the request
-      console.log("err", err);
-      // setProcessing(false);
-      // setProcessingFinal(false);
-      // showErrorToast();
-    }
-  };
   function handleThemeChange(th) {
     const theme = th;
     console.log("theme...", theme);
@@ -196,7 +139,9 @@ const CompetitionCode = () => {
     });
   };
 
-  console.log("output: ", gameState[username]?.testsPassed);
+  if (gameState[username]) {
+    console.log("output: ", gameState[username].tests_passed);
+  }
   return (
     <>
       <ToastContainer
@@ -232,8 +177,8 @@ const CompetitionCode = () => {
           <div className="right-container flex m-3 flex-col">
             <OutputWindow
               outputDetails={
-                gameState[username]?.testsPassed
-                  ? `You passed ${gameState[username]?.testsPassed} test cases`
+                gameState[username]?.tests_passed
+                  ? `You passed ${gameState[username]?.tests_passed} / ${totalTestCases} test cases`
                   : ""
               }
             />

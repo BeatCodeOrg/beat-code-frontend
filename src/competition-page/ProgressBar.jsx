@@ -30,10 +30,7 @@ const ProgressBar = ({ height }) => {
               height: "100%",
               position: "absolute",
               left: 0,
-              width: `${
-                100 * (gameState[username].testsPassed / totalTestCases)
-              }%`,
-              backgroundColor: gameState[username].color,
+              backgroundColor: `black`,
               borderRadius: 40,
               textAlign: "right",
             }}
@@ -46,13 +43,15 @@ const ProgressBar = ({ height }) => {
               position: "absolute",
               left: `${Math.min(
                 100,
-                100 * (gameState[username].testsPassed / totalTestCases)
+                100 * (gameState[username].tests_passed / totalTestCases)
               )}%`,
               top: "50%", // Center vertically
               transform: "translate(-50%, -50%)", // Center horizontally
               width: "48px",
               height: "48px",
-              backgroundColor: "red",
+              backgroundColor: gameState[username].color
+                ? gameState[username].color
+                : "red",
               borderRadius: "50%",
               border: "2px solid #000",
             }}
