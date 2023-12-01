@@ -1,24 +1,39 @@
 import "./JoinPage.css";
 
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // for testing userContext works:
 import { useUser } from "../use-user-context/UserContext";
 
 function JoinPage() {
+  const [typedRoomCode, setTypedRoomCode] = useState("");
   const navigate = useNavigate();
 
   // for testing userContext works:
   const { username } = useUser();
 
+  function handleJoinRoomInput(e) {
+    setTypedRoomCode(e.target.value);
+  }
+
+  function onEnterKey(e) {
+    if (e.key === "Enter") {
+      joinRoom();
+    }
+  }
+
   const generateRoom = async () => {
-    const response = await fetch("http://localhost:8080/rooms/create/" + username, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
+    const response = await fetch(
+      "http://localhost:8080/rooms/create/" + username,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
 
     if (!response.ok) {
       const message = `An error has occured: ${response.status}`;
@@ -26,6 +41,22 @@ function JoinPage() {
     } else {
       const data = await response.json();
       navigate(`/session/${data.room_code}`);
+    }
+  };
+
+  const joinRoom = async () => {
+    const response = await fetch(
+      `http://localhost:8080/rooms/${typedRoomCode}`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    if (data.message === "found-room") {
+      navigate(`/session/${typedRoomCode}`);
+    } else {
+      alert("Room not found");
     }
   };
   return (
@@ -83,7 +114,13 @@ function JoinPage() {
 
           <h1 id="right_main_text"> Join a Game </h1>
 
-          <input type="text" id="RoomCode" placeholder="Enter Room Code" />
+          <input
+            type="text"
+            id="RoomCode"
+            placeholder="Enter Room Code"
+            onChange={handleJoinRoomInput}
+            onKeyPress={onEnterKey}
+          />
         </div>
       </div>
     </div>
