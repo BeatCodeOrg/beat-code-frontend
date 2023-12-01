@@ -11,8 +11,26 @@ export const UserProvider = ({ children }) => {
     setUserID(userID_);
   };
 
-  const setGuest = () => {
+  const setGuest = async () => {
     // make a call to backend - similar to room codes
+    try {
+      const response = await fetch('http://localhost:8080/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      // Do something with the response data if needed
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (

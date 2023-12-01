@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useUser } from "../use-user-context/UserContext";
+
 import { Client } from "@stomp/stompjs";
 import "react-responsive-modal/styles.css";
 import "./SignUp.css";
@@ -13,6 +15,7 @@ function SignUp() {
     password: "",
     passwordVerify: "",
   });
+  const { setUser } = useUser();
 
   const navigate = useNavigate();
 
@@ -81,6 +84,7 @@ function SignUp() {
           alert("Username already exists");
         } else {
           alert("User created successfully");
+          setUser( data.username , data.user_id );
           navigate("/join");
         }
       } else {
