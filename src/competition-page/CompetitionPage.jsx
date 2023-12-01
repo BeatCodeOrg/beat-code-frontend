@@ -35,7 +35,7 @@ const CompetitionCode = () => {
   const enterPress = useKeyPress("Enter"); // a hook that returns true if enter is pressed
   const ctrlPress = useKeyPress("Control"); // a hook that returns true if cntrl is pressed
 
-  const { submitCode, starterCode } = useWebSocket();
+  const { submitCode, starterCode, gameState } = useWebSocket();
   const { username } = useUser();
 
   // const { user } = useUser();
@@ -196,6 +196,7 @@ const CompetitionCode = () => {
     });
   };
 
+  console.log("output: ", gameState[username]?.testsPassed);
   return (
     <>
       <ToastContainer
@@ -229,11 +230,21 @@ const CompetitionCode = () => {
         </div>
         <div className="bg-[#fff3de] border-2 border-black mt-3 rounded">
           <div className="right-container flex m-3 flex-col">
-            <OutputWindow outputDetails={outputDetails} />
+            <OutputWindow
+              outputDetails={
+                gameState[username]?.testsPassed
+                  ? `You passed ${gameState[username]?.testsPassed} test cases`
+                  : ""
+              }
+            />
             <div className="flex flex-row justify-between">
               <div>
                 {outputDetails && (
-                  <OutputDetails outputDetails={outputDetails} />
+                  <OutputDetails
+                    outputDetails={{
+                      description: `You passed ${gameState[username]?.testsPassed} test cases`,
+                    }}
+                  />
                 )}
               </div>
               <div className="flex flex-row justify-end h-full">

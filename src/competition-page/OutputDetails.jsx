@@ -1,13 +1,14 @@
 const OutputDetails = ({ outputDetails }) => {
   return (
     <div className="metrics-container mt-4 flex flex-col space-y-3">
-      {/* <p className="text-xs">
+      <p className="text-xs">
         Status:{" "}
         <span className="font-semibold px-2 py-1 rounded-md bg-gray-100">
-          {outputDetails?.status?.description}
+          {"adsfadsfasdfa"}
         </span>
-      </p> */}
-      <p className="text-xs">
+      </p>
+      {/* <p className="text-xs">
+          {outputDetails?.status?.description}
         Memory:{" "}
         <span className="font-semibold px-2 py-1 rounded-md bg-amber-200">
           {outputDetails?.memory}
@@ -19,6 +20,7 @@ const OutputDetails = ({ outputDetails }) => {
           {outputDetails?.time}
         </span>
       </p>
+        */}
     </div>
   );
 };

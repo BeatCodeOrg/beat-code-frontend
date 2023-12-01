@@ -3,6 +3,12 @@ const OutputWindow = ({ outputDetails }) => {
   const getOutput = () => {
     let statusId = outputDetails?.status?.id;
 
+    if (outputDetails)
+      return (
+        <pre className="px-2 py-1 font-normal text-xs text-green-500">
+          {outputDetails}
+        </pre>
+      );
     if (statusId === 6) {
       // compilation error
       // atob decodes base64 to a string
