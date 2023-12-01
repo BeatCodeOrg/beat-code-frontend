@@ -11,13 +11,18 @@ import { useUser } from "../use-user-context/UserContext";
 
 const WaitingPage = () => {
   const { roomCode } = useParams();
-  const { players, initSocket, sendMessage } = useWebSocket();
+  const { players, initSocket, setRoomCode, sendMessage } = useWebSocket();
   const { username, userID } = useUser();
 
   useEffect(() => {
-    console.log("Users: ", username, userID);
     initSocket(username, userID, roomCode);
+    setRoomCode(roomCode);
   }, []);
+
+  const startGame = () => {
+    console.log("asdfadsf");
+    sendMessage(`/app/start-game/${roomCode}`, {});
+  };
 
   return (
     <div className="session-creator">
@@ -49,13 +54,17 @@ const WaitingPage = () => {
               className="polygon"
               alt="Polygon"
               src="/assets/waiting-page/polygon1.png"
+              onClick={startGame}
             />
             <img
               className="img"
               alt="Polygon"
               src="/assets/waiting-page/polygon2.png"
+              onClick={startGame}
             />
-            <div className="text-wrapper-13">3...</div>
+            <div className="text-wrapper-13" onClick={startGame}>
+              Start
+            </div>
           </div>
           <img
             className="close"

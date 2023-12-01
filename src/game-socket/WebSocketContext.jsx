@@ -3,6 +3,7 @@ import { useState, createContext, useContext } from "react";
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
 
+import { useNavigate } from "react-router-dom";
 export const WebSocketContext = createContext(null);
 
 export function useWebSocket() {
@@ -11,14 +12,19 @@ export function useWebSocket() {
 
 function WebSocketContextProvider({ children }) {
   const [stompClient, setStompClient] = useState(null);
+  const [roomCode, setRoomCode] = useState("");
   const [players, setPlayers] = useState([]);
+
+  const navigate = useNavigate();
 
   function GameSocket(url, username, roomCode) {
     const socket = new SockJS("http://127.0.0.1:8080/ws");
     const stompClient = Stomp.over(socket);
 
+    const topicURL = `/topic/room/${roomCode}`;
+
     stompClient.connect({}, (frame) => {
-      stompClient.subscribe(`/topic/room/${roomCode}`, (message) => {
+      stompClient.subscribe(topicURL, (message) => {
         const data = JSON.parse(message.body);
         const newPlayers = data.users.map((user) => ({
           username: user,
@@ -26,9 +32,12 @@ function WebSocketContextProvider({ children }) {
         setPlayers(newPlayers);
       });
 
+      stompClient.subscribe(topicURL + "/start-game", (message) => {
+        navigate(`/competition/${roomCode}`);
+      });
+
       stompClient.connect();
       stompClient.send(`/app/connect/${roomCode}/${username}`, {});
-      console.log("hello");
     });
 
     return stompClient;
@@ -45,7 +54,14 @@ function WebSocketContextProvider({ children }) {
 
   return (
     <WebSocketContext.Provider
-      value={{ stompClient, players, initSocket, sendMessage }}
+      value={{
+        stompClient,
+        roomCode,
+        setRoomCode,
+        players,
+        initSocket,
+        sendMessage,
+      }}
     >
       {children}
     </WebSocketContext.Provider>
