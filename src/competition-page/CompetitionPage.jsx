@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const pythonDefault = `class Solution(object):
-def twoSum(self, nums, target):
+  def twoSum(self, nums, target):
     """
     :type nums: List[int]
     :type target: int
@@ -109,13 +109,16 @@ const CompetitionCode = ({players, updatePlayer}) => {
     if(response.ok){
       const data = await response.json();
       const userGrade = data.body.grade;
-      setOutputDetails(`user grade is ${userGrade}`);
+      // USERGRADE KEEPS ADDING UP SO JUST RUN ONCE
+      setOutputDetails(` Number of test cases passed: ${userGrade}`);
+      console.log(userGrade);
       // MANUAL UPDATING OF player elliexing
       updatePlayer(0, (player) => {
         // Assuming player has a property testCasesPassed
+        console.log
         player.testCasesPassed += userGrade;
-        player.pointsGained += userGrade * 10;
-        player.progress += userGrade / 3;
+        player.pointsGained += userGrade*10;
+        player.progress += (userGrade/3)*100;
         return player;
       });
       // sessionStorage.setItem('userGrade',userGrade);
