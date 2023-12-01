@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/join" element={<JoinPage />} />
-          <Route path="/competition" element={<FullCompPage />} />
+          <Route path="/competition/:roomCode" element={<FullCompPage />} />
           <Route path="/session/:roomCode" element={<WaitingPage />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/gameover" element={<GameOver />} />
