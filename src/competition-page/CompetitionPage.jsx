@@ -35,7 +35,7 @@ const CompetitionCode = () => {
   const enterPress = useKeyPress("Enter"); // a hook that returns true if enter is pressed
   const ctrlPress = useKeyPress("Control"); // a hook that returns true if cntrl is pressed
 
-  const { submitCode } = useWebSocket();
+  const { submitCode, starterCode } = useWebSocket();
   const { username } = useUser();
 
   // const { user } = useUser();
@@ -210,10 +210,10 @@ const CompetitionCode = () => {
         pauseOnHover
       />
       <div className="flex flex-row w-[100%] justify-end">
-        <div className="px-4 py-2">
+        <div className="py-2 pl-2 pr-2">
           <LanguagesDropdown onSelectChange={onSelectChange} />
         </div>
-        <div className="px-4 py-2">
+        <div className="py-2 pl-1 pr-4">
           <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
         </div>
       </div>
@@ -221,7 +221,7 @@ const CompetitionCode = () => {
       <div className="flex flex-col w-[100%] ml-auto px-4 py-2">
         <div className="flex flex-col w-full">
           <CodeEditorWindow
-            code={code}
+            code={starterCode}
             onChange={onChange}
             language={language?.value}
             theme={theme.value}

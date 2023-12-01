@@ -28,7 +28,7 @@ function FullCompPage() {
           {/* Set a fixed width for the Timer component */}
           <Timer onTimerZero={handleTimerZero} />
         </div>
-        // <ProgressBar gameState={gameState} height={25} />
+        <ProgressBar gameState={gameState} height={25} />
       </div>
       <div className="full-competition-page flex-grow flex">
         <div className="left-problem-desc border-black border-2 ml-5 mb-8 mt-2 w-[30%] h-[88vh] rounded bg-[#2b363c] text-[#d3d1cf]">
