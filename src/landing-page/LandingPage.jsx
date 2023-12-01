@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
-import { useUser } from "../UserContext";
+import { useUser } from "../use-user-context/UserContext";
 import "./popup.css";
 
 function LandingPage() {
@@ -56,7 +56,7 @@ function LandingPage() {
         if (data.message == "unauthorized") {
           alert("Incorrect username or password");
         } else {
-          setUser({ userId: data.user_id });
+          setUser( data.username , data.user_id );
           navigate("/join");
         }
       } else {
