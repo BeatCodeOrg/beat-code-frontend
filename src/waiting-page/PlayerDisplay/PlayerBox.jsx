@@ -5,7 +5,7 @@ function PlayerBox({ player }) {
         <img
           className="w-16 h-16 rounded-full"
           src="/assets/waiting-page/profile.png"
-          alt={player.name + "'s Pic"}
+          alt={player.username + "'s Pic"}
         />
       </div>
       <h1 className="ml-4 text-3xl">{player.username}</h1>

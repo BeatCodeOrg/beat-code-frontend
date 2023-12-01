@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import "./WaitingPage.css";
@@ -6,8 +6,19 @@ import "./WaitingPage.css";
 import PlayerDisplay from "./PlayerDisplay/PlayerDisplay";
 import QuestionTypeForm from "./QuestionTypeForm/QuestionTypeForm";
 
+import { useWebSocket } from "../game-socket/WebSocketContext";
+import { useUser } from "../use-user-context/UserContext";
+
 const WaitingPage = () => {
   const { roomCode } = useParams();
+  const { players, initSocket, sendMessage } = useWebSocket();
+  const { username, userID } = useUser();
+
+  useEffect(() => {
+    console.log("Users: ", username, userID);
+    initSocket(username, userID, roomCode);
+  }, []);
+
   return (
     <div className="session-creator">
       <div className="overlap-wrapper">
@@ -28,7 +39,7 @@ const WaitingPage = () => {
             </div>
             <div className="div">
               <h1>PLAYERS</h1>
-              <PlayerDisplay />
+              <PlayerDisplay players={players} />
             </div>
             <div className="translate-y-20 translate-x-88">
               <QuestionTypeForm />
@@ -46,7 +57,11 @@ const WaitingPage = () => {
             />
             <div className="text-wrapper-13">3...</div>
           </div>
-          <img className="close" alt="Close" src="close.png" />
+          <img
+            className="close"
+            alt="Close"
+            src="/assets/waiting-page/close.png"
+          />
         </div>
       </div>
 
