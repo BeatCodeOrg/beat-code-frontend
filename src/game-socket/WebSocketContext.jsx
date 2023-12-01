@@ -14,14 +14,21 @@ function WebSocketContextProvider({ children }) {
   const [players, setPlayers] = useState([]);
 
   function GameSocket(url, username, roomCode) {
-    const socket = new SockJS("http://localhost:8080/ws");
+    const socket = new SockJS("http://127.0.0.1:8080/ws");
     const stompClient = Stomp.over(socket);
 
     stompClient.connect({}, (frame) => {
-      console.log("Connected: " + frame);
       stompClient.subscribe(`/topic/room/${roomCode}`, (message) => {
-        console.log(message);
+        const data = JSON.parse(message.body);
+        const newPlayers = data.users.map((user) => ({
+          username: user,
+        }));
+        setPlayers(newPlayers);
       });
+
+      stompClient.connect();
+      stompClient.send(`/app/connect/${roomCode}/${username}`, {});
+      console.log("hello");
     });
 
     return stompClient;
@@ -32,7 +39,9 @@ function WebSocketContextProvider({ children }) {
     setStompClient(gs);
   }
 
-  function sendMessage(url, payload) {}
+  function sendMessage(url, payload) {
+    stompClient.send(url, {}, JSON.stringify(payload));
+  }
 
   return (
     <WebSocketContext.Provider

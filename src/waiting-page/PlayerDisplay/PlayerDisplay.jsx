@@ -1,10 +1,11 @@
 import PlayerBox from "./PlayerBox";
 
-function PlayerDisplay() {
+function PlayerDisplay({ players }) {
   return (
     <div className="flex flex-col">
-      <PlayerBox player={{ username: "seanyboy", name: "Sean" }} />
-      <PlayerBox player={{ username: "vishyboy", name: "Vish" }} />
+      {players.map((player) => (
+        <PlayerBox player={player} />
+      ))}
     </div>
   );
 }

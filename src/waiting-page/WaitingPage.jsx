@@ -10,15 +10,12 @@ import { useWebSocket } from "../game-socket/WebSocketContext";
 
 const WaitingPage = () => {
   const { roomCode } = useParams();
-  const { stompClient, players, initSocket } = useWebSocket();
+  const { players, initSocket, sendMessage } = useWebSocket();
 
   useEffect(() => {
     initSocket("vish", 1, roomCode);
   }, []);
 
-  function sendMessage() {
-    stompClient.send(`/app/room/connect/${roomCode}/${"vish"}/${1}`, {});
-  }
   return (
     <div className="session-creator">
       <div className="overlap-wrapper">
@@ -39,7 +36,7 @@ const WaitingPage = () => {
             </div>
             <div className="div">
               <h1>PLAYERS</h1>
-              <PlayerDisplay />
+              <PlayerDisplay players={players} />
             </div>
             <div className="translate-y-20 translate-x-88">
               <QuestionTypeForm />
@@ -57,7 +54,11 @@ const WaitingPage = () => {
             />
             <div className="text-wrapper-13">3...</div>
           </div>
-          <img className="close" alt="Close" src="close.png" />
+          <img
+            className="close"
+            alt="Close"
+            src="/assets/waiting-page/close.png"
+          />
         </div>
       </div>
 
