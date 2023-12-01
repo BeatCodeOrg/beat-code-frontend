@@ -7,8 +7,8 @@ import Timer from "./Timer";
 function FullCompPage() {
   // this will need to be passed in
   const [players, setPlayers] = useState([
-    { username: 'elliexing', testCasesPassed: 0, pointsGained: 0, progress: 1, bgcolor: '#2f7fff' },
-    { username: 'ellie1', testCasesPassed: 0, pointsGained: 0, progress: 1, bgcolor: '#ff2ff5' },
+    { username: 'elliexing', testCasesPassed: 0, pointsGained: 0, progress: 0, bgcolor: '#2f7fff' },
+    { username: 'ellie1', testCasesPassed: 0, pointsGained: 0, progress: 0, bgcolor: '#ff2ff5' },
     // Add more players as needed
   ]);
 

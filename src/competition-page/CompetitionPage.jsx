@@ -115,10 +115,9 @@ const CompetitionCode = ({players, updatePlayer}) => {
       // MANUAL UPDATING OF player elliexing
       updatePlayer(0, (player) => {
         // Assuming player has a property testCasesPassed
-        console.log
-        player.testCasesPassed += userGrade;
-        player.pointsGained += userGrade*10;
-        player.progress += (userGrade/3)*100;
+        player.testCasesPassed = userGrade;
+        player.pointsGained = userGrade*10;
+        player.progress = (userGrade/3)*100;
         return player;
       });
       // sessionStorage.setItem('userGrade',userGrade);
