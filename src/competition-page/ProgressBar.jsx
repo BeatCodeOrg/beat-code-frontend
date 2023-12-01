@@ -33,7 +33,7 @@ const ProgressBar = ({ height }) => {
               width: `${
                 100 * (gameState[username].testsPassed / totalTestCases)
               }%`,
-              // backgroundColor: player.bgcolor,
+              backgroundColor: gameState[username].color,
               borderRadius: 40,
               textAlign: "right",
             }}
