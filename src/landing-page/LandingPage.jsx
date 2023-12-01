@@ -56,7 +56,7 @@ function LandingPage() {
         if (data.message == "unauthorized") {
           alert("Incorrect username or password");
         } else {
-          setUser( data.username , data.user_id );
+          setUser(data.username, data.user_id);
           navigate("/join");
         }
       } else {

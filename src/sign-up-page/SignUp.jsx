@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Client } from "@stomp/stompjs";
+import { useUser } from "../use-user-context/UserContext";
+
 import "react-responsive-modal/styles.css";
 import "./SignUp.css";
 
@@ -14,36 +15,8 @@ function SignUp() {
     passwordVerify: "",
   });
 
+  const { setUser } = useUser();
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //     const client = new Client({
-  //         brokerURL: 'ws://localhost:5173/gs-guide-websocket'
-  //     });
-
-  //     client.onConnect = () => {
-  //         console.log('Connected to WebSocket');
-  //         client.subscribe('/topic/signupStatus', (message) => {
-  //             setSignUpStatus(JSON.parse(message.body).status);
-  //         });
-  //     };
-
-  //     client.onWebSocketError = (error) => {
-  //         console.error('Error with websocket', error);
-  //     };
-
-  //     client.onStompError = (frame) => {
-  //         console.error('Broker reported error: ' + frame.headers['message']);
-  //         console.error('Additional details: ' + frame.body);
-  //     };
-
-  //     client.activate();
-  //     setStompClient(client);
-
-  //     return () => {
-  //         client.deactivate();
-  //     };
-  // }, []);
 
   const handleChange = (e) => {
     const updatedFormData = {
@@ -81,6 +54,7 @@ function SignUp() {
           alert("Username already exists");
         } else {
           alert("User created successfully");
+          setUser(data.username, data.user_id);
           navigate("/join");
         }
       } else {

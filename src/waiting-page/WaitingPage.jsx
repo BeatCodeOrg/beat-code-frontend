@@ -7,13 +7,16 @@ import PlayerDisplay from "./PlayerDisplay/PlayerDisplay";
 import QuestionTypeForm from "./QuestionTypeForm/QuestionTypeForm";
 
 import { useWebSocket } from "../game-socket/WebSocketContext";
+import { useUser } from "../use-user-context/UserContext";
 
 const WaitingPage = () => {
   const { roomCode } = useParams();
   const { players, initSocket, sendMessage } = useWebSocket();
+  const { username, userID } = useUser();
 
   useEffect(() => {
-    initSocket("vish", 1, roomCode);
+    console.log("Users: ", username, userID);
+    initSocket(username, userID, roomCode);
   }, []);
 
   return (
