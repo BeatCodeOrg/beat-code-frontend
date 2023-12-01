@@ -8,11 +8,12 @@ import { useWebSocket } from "../game-socket/WebSocketContext";
 
 function FullCompPage() {
   // this will need to be passed in
+  const { gameState } = useWebSocket();
 
   const navigate = useNavigate();
 
   const handleTimerZero = () => {
-    navigate("/gameover");
+    navigate("/gameover", { state: { ...gameState } });
   };
 
   return (

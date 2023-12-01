@@ -1,16 +1,17 @@
 import React from "react";
 import "./GameOver.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useWebSocket } from "../game-socket/WebSocketContext";
 
 const GameOver = () => {
-  const { gameState } = useWebSocket();
   const navigate = useNavigate();
+  const gameState = useLocation().state;
+  console.log("game: ", gameState);
 
   const players = Object.keys(gameState).map((username, ind) => ({
     username: username,
-    testCasesPassed: gameState[username].testsPassed,
-    pointsGained: gameState[username].testsPassed * 10,
+    testCasesPassed: gameState[username].tests_passed,
+    pointsGained: gameState[username].tests_passed * 10,
   }));
 
   players.sort((a, b) => b.pointsGained - a.pointsGained);
