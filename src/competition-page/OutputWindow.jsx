@@ -35,10 +35,10 @@ const OutputWindow = ({ outputDetails }) => {
   };
   return (
     <>
-      <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 mb-2">
+      {/* <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 mb-2">
         Output
-      </h1>
-      <div className="w-full h-32 bg-[#3b2b1e] rounded-md text-white font-normal text-sm overflow-y-auto">
+      </h1> */}
+      <div className="w-full h-40 bg-[#3b2b1e] rounded-md text-white font-normal text-sm overflow-y-auto">
         {outputDetails ? <>{getOutput()}</> : null}
       </div>
     </>

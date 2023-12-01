@@ -77,62 +77,6 @@ const CompetitionCode = ({ players, updatePlayer }) => {
 
   const handleSubmit = async () => {
     setWaitingMessage(true);
-
-    // setProcessingFinal(true);
-
-    // const requestData = {
-    //   roomId: 111,
-    //   userId: user.userId,
-    //   code: code,
-    // };
-
-    // try {
-    //     const response = await axios.post("/games/submit-code", requestData);
-    //     const scores = response.data;
-    //     // Handle scores or any other response data as needed
-    //     console.log("Scores:", scores);
-    // } catch (error) {
-    //     // Handle errors
-    //     console.error("Error submitting code:", error);
-    // } finally {
-    //     setProcessingFinal(false);
-    // }
-
-    // const formData = {
-    //   language_id: language.id,
-    //   // encode source code in base64
-    //   source_code: btoa(code),
-    //   stdin: btoa(customInput),
-    // };
-
-    // console.log(import.meta.env.VITE_RAPID_API_HOST);
-    // // Parameters for axios request to Judge0
-    // const options = {
-    //   method: "POST",
-    //   url: import.meta.env.VITE_JUDGE0_SUBMISSIONS_URL,
-    //   params: { base64_encoded: "true", fields: "*" },
-    //   headers: {
-    //     "content-type": "application/json",
-    //     "Content-Type": "application/json",
-    //     "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
-    //     "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
-    //   },
-    //   data: formData,
-    // };
-
-    // // Makes get request
-    // axios
-    //   .request(options)
-    //   .then(function (response) {
-    //     console.log("res.data", response.data);
-    //     const token = response.data.token;
-    //     checkStatus(token);
-    //   })
-    //   .catch((err) => {
-    //     let error = err.response ? err.response.data : err;
-    //     setProcessingFinal(false);
-    //     console.log(error);
-    //   });
   };
 
   const handleCompile = () => {
@@ -296,7 +240,7 @@ const CompetitionCode = ({ players, updatePlayer }) => {
         </div>
       </div>
 
-      <div className="flex flex-col w-[100%] ml-auto px-4 py-4">
+      <div className="flex flex-col w-[100%] ml-auto px-4 py-2">
         <div className="flex flex-col w-full">
           <CodeEditorWindow
             code={code}
@@ -305,36 +249,39 @@ const CompetitionCode = ({ players, updatePlayer }) => {
             theme={theme.value}
           />
         </div>
-        <div className="right-container flex w-[100%] pt-3 flex-col">
+        <div className="bg-[#fff3de] border-2 border-black mt-3 rounded">
+        <div className="right-container flex m-3 flex-col">
         <OutputWindow outputDetails={outputDetails} />
           <div className="flex flex-row justify-between">
-            <div className = "flex flex-row justify-start h-full">
+            <div>{outputDetails && <OutputDetails outputDetails={outputDetails} />}</div>
+            <div className = "flex flex-row justify-end h-full">
               <button
                 onClick={handleCompile}
                 disabled={!code}
                 className={[
-                  "mt-4 border-1 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[100%] mr-3 px-4 py-2 bg-gradient-to-r",
+                  "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[100%] mr-5 px-4 py-2 bg-gradient-to-r",
                   "from-orange-300 to-white hover:shadow transition duration-200 flex-shrink-0",
                   !code ? "opacity-50" : "",
                 ].join(" ")}
               >
-                {processing ? "Processing..." : "Run tests"}
+                {processing ? "Processing..." : "RUN TESTS"}
               </button>
               <button
                 onClick={onOpenModalSubmit}
                 disabled={!code}
                 className={[
-                  "mt-4 border-1 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[100%] px-4 py-2 bg-gradient-to-r",
+                  "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] h-[100%] px-4 py-2 bg-gradient-to-r",
                   "from-green-300 to-white hover:shadow transition duration-200 flex-shrink-0",
                   !code ? "opacity-50" : "",
                 ].join(" ")}
               >
-                {processingFinal ? "Processing..." : "Submit"}
+                {processingFinal ? "Processing..." : "SUBMIT"}
               </button>
             </div>
-            {outputDetails && <OutputDetails outputDetails={outputDetails} />}
           </div>
         </div>
+        </div>
+        
       </div>
       {/* Submit IN MODAL */}
       <Modal open={showSubmitModal} onClose={onCloseModalclose} showCloseIcon={!waitingMessage} 
