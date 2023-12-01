@@ -16,7 +16,7 @@ function WebSocketContextProvider({ children }) {
   const [players, setPlayers] = useState([]);
 
   const [questionId, setQuestionId] = useState(1);
-  const [questionText, setQuestionText] = useState(1);
+  const [starterCode, setStarterCode] = useState("");
   const [gameState, setGameState] = useState({
     [""]: {
       testCases: 0,
@@ -60,14 +60,12 @@ function WebSocketContextProvider({ children }) {
           }));
 
           setGameState((prev) => initialGameState);
-          console.log(playersRef.current);
           return playersRef.current;
         });
 
-        console.log("this is: ", players);
+        setQuestionId(data.question_id);
+        setStarterCode(data.starter_code);
 
-        setQuestionId(data.questionId);
-        setQuestionText(data.questionText);
         setTotalTestCases(3);
 
         navigate(`/competition/${roomCode}`);
@@ -115,12 +113,12 @@ function WebSocketContextProvider({ children }) {
         roomCode,
         setRoomCode,
         players,
-        playersRef,
         initSocket,
         sendMessage,
         submitCode,
         totalTestCases,
         gameState,
+        starterCode,
       }}
     >
       {children}
