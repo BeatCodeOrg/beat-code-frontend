@@ -10,7 +10,7 @@ function LandingPage() {
   const [showLoginModal, setLoginModal] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { setUser } = useUser();
+  const { setUser, setGuest } = useUser();
 
   const navigate = useNavigate();
 
@@ -19,6 +19,7 @@ function LandingPage() {
   };
 
   const guestLogin = () => {
+    setGuest();
     navigate("/join");
   };
 

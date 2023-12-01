@@ -17,20 +17,21 @@ export const UserProvider = ({ children }) => {
   const setGuest = async () => {
     // make a call to backend - similar to room codes
     try {
-      const response = await fetch('http://localhost:8080/users', {
-        method: 'GET',
+      const response = await fetch('http://localhost:8080/users/guest', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
         },
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData);
+        setUser(responseData.username, responseData.user_id);
+      } else {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
-      const responseData = await response.json();
-      // Do something with the response data if needed
     } catch (error) {
       console.error('Error:', error);
     }
