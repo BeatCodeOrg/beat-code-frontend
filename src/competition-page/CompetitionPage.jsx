@@ -177,8 +177,10 @@ const CompetitionCode = () => {
           <div className="right-container flex m-3 flex-col">
             <OutputWindow
               outputDetails={
-                gameState[username]?.tests_passed
-                  ? `You passed ${gameState[username]?.tests_passed} / ${totalTestCases} test cases`
+                gameState[username] &&
+                gameState[username].tests_passed != null &&
+                gameState[username].tests_passed != -1
+                  ? `You passed ${gameState[username].tests_passed} / ${totalTestCases} test cases`
                   : ""
               }
             />

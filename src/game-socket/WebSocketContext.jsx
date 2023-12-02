@@ -55,7 +55,7 @@ function WebSocketContextProvider({ children }) {
         setPlayers((prev) => {
           const initialGameState = playersRef.current.map((username) => ({
             [username.username]: {
-              testsPassed: 0,
+              testsPassed: -1,
               color: data.game_state[username.username].color,
             },
           }));

@@ -43,7 +43,10 @@ const ProgressBar = ({ height }) => {
               position: "absolute",
               left: `${Math.min(
                 100,
-                100 * (gameState[username].tests_passed / totalTestCases)
+                Math.max(
+                  100 * (gameState[username].tests_passed / totalTestCases),
+                  0
+                )
               )}%`,
               top: "50%", // Center vertically
               transform: "translate(-50%, -50%)", // Center horizontally
