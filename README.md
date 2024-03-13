@@ -1,3 +1,10 @@
+# Video of working project
+
+
+https://github.com/BeatCodeOrg/beat-code-frontend/assets/43936294/56225e72-1088-476f-a9d8-d01af2a313c6
+
+
+
 # Set up of repo 
 - First run `git clone (this branch)`
 - Then cd into the folder
